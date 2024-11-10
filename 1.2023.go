@@ -3,6 +3,7 @@ package main
 import (
 	"strconv"
 	"strings"
+	"unicode"
 )
 
 // The newly-improved calibration document consists of lines of text;
@@ -31,10 +32,10 @@ func CalibrateTrebuchet(calibrationDocument string) int {
 
 func findFirstDigit(line string) int {
 	for _, l := range line {
-		digit, err := strconv.Atoi(string(l))
-		if err != nil {
+		if !unicode.IsDigit(l) {
 			continue
 		}
+		digit, _ := strconv.Atoi(string(l))
 		return digit
 	}
 	panic("Line should always have a digit")
@@ -42,11 +43,11 @@ func findFirstDigit(line string) int {
 
 func findLastDigit(line string) int {
 	for i := len(line) - 1; i >= 0; i-- {
-		l := line[i]
-		digit, err := strconv.Atoi(string(l))
-		if err != nil {
+		l := rune(line[i])
+		if !unicode.IsDigit(l) {
 			continue
 		}
+		digit, _ := strconv.Atoi(string(l))
 		return digit
 	}
 	panic("Line should always have a digit")
