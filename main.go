@@ -2007,6 +2007,12 @@ func main() {
 57980   35192
 58451   71130
 81627   56209`
-	compareLocationIds(input)
+	// 	input = `3   4
+	// 4   3
+	// 2   5
+	// 1   3
+	// 3   9
+	// 3   3`
+	CompareLocationIds(input)
 	fmt.Println("Done")
 }
