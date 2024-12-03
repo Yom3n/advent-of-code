@@ -15,3 +15,12 @@ func TestSecond2024(t *testing.T) {
 		t.Errorf("Should be: %v, Got: %v", expected, actual)
 	}
 }
+
+func TestReport(t *testing.T) {
+	input := "9 7 6 2 1"
+	actual := IsReportSafe(input)
+	expected := false
+	if actual != expected {
+		t.Errorf("Expected: %v, Got: %v", expected, actual)
+	}
+}
