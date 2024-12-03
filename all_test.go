@@ -16,10 +16,19 @@ func TestSecond2024(t *testing.T) {
 	}
 }
 
-func TestReport(t *testing.T) {
-	input := "9 7 6 2 1"
+func TestReportDsc(t *testing.T) {
+	input := "7 6 4 2 1"
 	actual := IsReportSafe(input)
-	expected := false
+	expected := true
+	if actual != expected {
+		t.Errorf("Expected: %v, Got: %v", expected, actual)
+	}
+}
+
+func TestReportAsc(t *testing.T) {
+	input := "1 3 6 7 9"
+	actual := IsReportSafe(input)
+	expected := true
 	if actual != expected {
 		t.Errorf("Expected: %v, Got: %v", expected, actual)
 	}
