@@ -33,3 +33,11 @@ func TestReportAsc(t *testing.T) {
 		t.Errorf("Expected: %v, Got: %v", expected, actual)
 	}
 }
+
+/// With problem dampener you can ommit 1 bad digid in report
+func TestProblemDampener(t *testing.T){
+	isSafe:= IsReportSafe("1 3 2 4 5")
+	if(isSafe != true){
+		t.Errorf("1 3 2 4 5 is safe report")
+	}
+}

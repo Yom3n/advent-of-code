@@ -1,4 +1,4 @@
-package report_checker 
+package report_checker
 
 import (
 	"fmt"
@@ -38,12 +38,24 @@ func IsReportSafe(report string) bool {
 }
 
 func isDscReportSafe(r string) bool {
+	return _validateReport(r, func(diff int) bool {
+		return diff < 0 && -diff <= maxSaftyChange
+	})
+}
+
+func isAscReportSafe(r string) bool {
+	return _validateReport(r, func(diff int) bool {
+		return diff > 0 && diff <= maxSaftyChange
+	})
+}
+
+func _validateReport(r string, validCondition func(diff int) bool) bool {
 	digitStr := strings.Fields(r)
 	lastDigit := strToInt(digitStr[0])
 	for i := 1; i < len(digitStr); i++ {
 		curr := strToInt(digitStr[i])
 		diff := curr - lastDigit
-		if diff < 0 && -diff <= maxSaftyChange {
+		if validCondition(diff) {
 			lastDigit = curr
 			continue
 		} else {
@@ -53,21 +65,6 @@ func isDscReportSafe(r string) bool {
 	return true
 }
 
-func isAscReportSafe(r string) bool {
-	digitStr := strings.Fields(r)
-	lastDigit := strToInt(digitStr[0])
-	for i := 1; i < len(digitStr); i++ {
-		curr := strToInt(digitStr[i])
-		diff := curr - lastDigit
-		if diff > 0 && diff <= maxSaftyChange {
-			lastDigit = curr
-			continue
-		} else {
-			return false
-		}
-	}
-	return true
-}
 func strToInt(str string) int {
 	v, err := strconv.Atoi(str)
 	if err != nil {

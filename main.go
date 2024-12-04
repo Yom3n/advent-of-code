@@ -1,2018 +1,1010 @@
 package main
 
-import "fmt"
-
-// func main() {
-// 	input := `twovgtprdzcjjzkq3ffsbcblnpq
-// two8sixbmrmqzrrb1seven
-// 9964pfxmmr474
-// 46one
-// 7fvfourgkfkkbloneeightdrfscspgkdrmzzt1
-// 15two6six
-// htxxfmfd7nb
-// sixfivesixeight4pfsgxvn9sfjfk5
-// pmjjpggvhkrq2
-// tvbrkhlxdsnine65
-// four5gkrptqninenbdvffour1z
-// foursgnlxmjtcrrfour7
-// 3onetwogkhmllzvrsqzhhnkvdg
-// nineninegxknqzpsix28
-// 1seven85189mv
-// gtwonejcncdlhpsxjrxnmpvfgtdrcdtd2nm
-// 1ninemxzntjptl
-// qcmqfour2onesgplvgzkdltqtvzhtb1
-// seventhreerxqvgkzqhfxfdhnp628zxtbjklkpdtwo
-// fjdsgcsqppzdthreefour3one3lvmpm
-// sixsevenfivefourxf4mzhmkztwonepzt
-// nineninesixskjkbhx6nineoneightj
-// four6nzqxhhnrg
-// 86fiveone9dhrkkh6
-// 8ninetvnsrcsbpn
-// two43one
-// 8vfvbrnclnmthree8onetwoeightthree
-// one2czxjgbzsn46ktj8twones
-// qfnlfivemqninextzppkfkb8
-// ntvcmxsevengxdtc3five
-// 8lsfkbbxkscc
-// seven5817smvjfpdktwo6mdfngz
-// 92hqxbchfpnine
-// tvxbltz53oneninethreeonek9
-// hvvjhd1
-// six1six7sevensixqcvhsfour7
-// seventwo2
-// 2svpbhrlhfjhbkf3fourvvspkfmbvztmtpcxndfnine9
-// fivefour42
-// sixvstzdtfive3qzmbbx
-// rfcxmthzlgxgrmjncszdvlnp6
-// lhlncfjlhrqrfzr1
-// cqnkmtfj5
-// tctfngvrxljlt53pntbcfrftjpjvzqbqxh
-// 6fgcdfive
-// 4834sevenvssix1eight
-// rpxcthbpmhgrcxk4
-// threecthhnine781
-// pppqkscmthreeseven1sixfive
-// 2tgrmvxpthree6
-// 7ckxjmlpkqqqjtfiveeightbmmdoneighttnv
-// six2two
-// lsshzhtdfour24
-// mrjjgzsb92fivetwoxh3
-// 5fourcqhk3two85fiveeight
-// lsxpkxfmq97one
-// b87twosshtxkkplq5zkrrqcmfn
-// threeqsnd64hthreeldbtfkqpbqpdlmtwo
-// eight2one
-// 14r
-// 71fourzrmsevenseven9
-// threesixmmcjzzml4
-// stnmbsix41
-// cztnnflpcl4txplfour
-// five6six4kxv
-// 5oneqmmbnvgvbq6vsncbrjrsix7eightpzkhvrjz
-// kflckfgxfeightlr37fourfiveseven
-// 9three7three
-// rkxbqnine7onevvqgzcvvjthreendkddfournine
-// fzzfstwo44vm
-// 19648
-// 7fivesixhdxhlgmv9
-// six9hzlctfiveonefour
-// 66eightthree4nine
-// jcgk8three
-// tbctwonefive2eightsixbntmjceight
-// ninemrqkzsevengvq6
-// rsmmpmrlmq92fourfour453four
-// 6eightbmjhnpbgnccfninefonenineglkfgp
-// 8onefive7kn
-// eightrgzfdksevenftbvkt455oneightnl
-// 3vxtwogxpdhjmqskjc
-// shzvnlgvvvthreenkv14eightbcmjd
-// 2sevenlbq
-// 1zfjpz1mdfourstvj7zpfxxlqf
-// twogm22trvplbsk29rbjtvctqr
-// twoqpgcbskdgh2tktbbpnzll7twoxljpdhthree
-// 5nineeight6
-// 936
-// 218ptffour
-// 1clztnnsix1
-// bsevengsxbpjmbg5eight
-// 1cpeighteightpb
-// vrlnveight2twopxmtwo
-// fgrjr8six
-// 5sevenspppgjtxbtqlzt
-// 5sixczhncsix2qcqsevenfive4
-// kgcdpqclsggzm79nine
-// eighteightone6sevensixthree
-// 92eight7plhftxkntl1two
-// 5dqrhhqrrgmvrqznbgx4three3
-// twoone953cdkm5stzdbdh
-// heightwothreennzljtptwo94
-// 6sevensevenfoursix5nine
-// cnbslkngtk9five58xpqvgjpqrnpjnzbk
-// onebrcg1bnfivekftnzpclqxvhchloneightzrn
-// four855dpknm
-// 4hkdseventggkffhrkvsixcrsqjsix9
-// 8seventwo
-// two9sixthree9cdrmqntmcv
-// 525tg4h
-// five7kxrlmq1bzhdmhtgglmvzrtfbqqd3
-// bnbbsbhlcbktsqlpq69ninesfxhq
-// gndxnlmnrmnk29qkfxfoursnnbvjtq
-// 5bzppjrgcpk
-// 2three79pmgtcgmtdf2fjh
-// sixmmpbmtznseven62
-// 4rrm
-// ztlthreesix28ninesix
-// j7fourfourfbrlxplk
-// zjhrqtqsix1
-// 4three6hhndrlszfrgphcbonenxfive
-// jmg8hfsxfsvdxz3four7jfbczjmdhbpn
-// 39ptfzqjfpnpxrnf7eight
-// three6jrcrgpfxg8vxgk8
-// 57kvbczxn5eightfour
-// 8xbdbrbpjp
-// sixtrhhl2tktvvmkffl5
-// three6fgsjtmnine54sm5k
-// ninenine3stfpft2nine
-// one61onenrhmtwos
-// pzdq8
-// pltd9sjdkrscxr25
-// dzsldkmzd1
-// vlvpfmz24sevenshcrvx389one
-// 1rfvlnmfkdbmdjj
-// sixbzzbftqggn8zggtbcd
-// hzxzjhkvd5twofivedxfdlrdeighttwo
-// six9nlgcdznskrsb
-// sixrxkfhvsjxzbt4fivenineninenine
-// dsbmqpgmf8nine634two
-// fourknfzpthpf1
-// two9twovbmldd
-// 5zgnnrxtwo2two2
-// fivezfvzfdxkmrbvtpdhqbmdhcthreedvlstmq28
-// ppfqqq75seven954
-// sgtjpsix3
-// twospnc9cnchkzthreegj
-// 3eightwoqs
-// goneightghmkgksqfk2two2six
-// sixthree6bjzpqlsbgq2rkbffxtmprpddkxv
-// rkv43
-// bzfnbq8onefourthree4
-// 3mqvr
-// fiveninefflpllcqzonejqqbtwofive43
-// tvoneightfour3three5
-// mvhlv6bzbjggrsvvxh4dfcpmrnhnq4
-// fcrsmfmpnmkfs3fivekblglhqmvfourchc7
-// svfmfbdrgd81one4
-// mf7threetwo8nine1
-// qngfr4gnnxbszqzsixp
-// px5gfx7two5seven9
-// 4gp
-// 8lxkgvpzxch6
-// 3mdgqrvtgnthqnhpxteightfour
-// onethree899btbpjnxxjhone
-// fnjdzx5vrzc
-// four5twofour
-// 9fivetwo2
-// threezlpsdhxvdlfpsvkxxnnine3
-// hvnnq9two2fourpdjv
-// bvjkdg9four1
-// 2412
-// threethreeszmhdndctj1eight8lcqtwo3
-// cdnmjmxqrz6vrkkxtfour8cc
-// njldrqggdnfsix5
-// 9csxcksh6three697
-// 92four2sr32
-// 3jdpqdjjct44oneone75pjgkgv
-// 576sreighttwosixxzqmj7
-// twoscdxdlfddmfive54
-// ninefiveznine33
-// threenffnvx3
-// 916tpsgsxmtml8
-// 6five3
-// fdztvpctnr5dmbjnrjslr
-// 16four
-// 4oneightk
-// three5fouronenm
-// threezrksvlbdb891zfbbcdrbpd7
-// five821ndfftdbmbr3nine
-// ninehvdxftmgcvnkrlrvmmbb4nine
-// xkkzphgfv1two
-// 3pm
-// ninetwobtjxdvnhv12
-// fiverbkmfbx8fiveeightksjzphkrj23rdlrtnb
-// kseightwo2fivesix
-// 5snpchthree3
-// 71oneone
-// 6frxncksfxboneftdpvmnfdfxreighthrmnqc8
-// two48mhgdtlp246four3
-// 993three8
-// threenine7twohbmcrpd
-// 9bpdccqbts
-// kptwonejntgcdqdfffour4twobvtxnhqkl7
-// 1637sevenfour
-// soneight6lbcrzdmhltpbkbjfivechxzfrqqgfeight
-// 99five3hjvjrdmgl
-// qncqlreighthkfmbbfqx87five3
-// 7jqkdsfour
-// ninemmvcxlkcrg1
-// mkdhgzcvmseven3onesnkhtxbgf7threestvjqn
-// nttgqsmsl4five1eighttwo9zg
-// one2ninefour5
-// bdfbveightseven1lcrshdgxznineeight
-// qsnvsonezqhsjmfive9one
-// 6kvdrgkgznf1cmklmxgnine6
-// xkmzzdpknl661
-// ninefoursix7gnbmzd37
-// mmxmfnsrmt2bnhkmftxnjsix
-// fmhsrdtnrxlqgjttlgvmqxgzpl756sixllmdvblrvrrzkqgb
-// 7xmppbvd976dqt87
-// fourzdctfglzzf1xdbfmrbfeightwor
-// 8thncgqzvr989lthreeseven
-// 5qmrzeight169
-// 4qgvkmninegcsdgcthsp62onehczjhdxcgm
-// 25tlppkmctwo2
-// 668four4
-// rjbxtvfktchflstwo639one4
-// seven6eight4onehfztk
-// five53
-// nine33threethree3pznjbtxjmrrxm
-// 19six
-// fivethreefivegxcqflqhjrn3fivehcn
-// vpbntqnpkjfninesix6341
-// 7eightb7
-// bktffkqsx6fzvpnjhk
-// 38jrjprtwo628
-// 77tplflrp7
-// 4one9one6
-// pkdhkbxrbshccxgknrjgseven44
-// 49rthxdvlmeight
-// 5twodhkpfn1
-// znine2fbsmeighttwo7
-// 5ninexvmg
-// dbjbfmqtkp66
-// mdsrdjdnxkzr3xfm
-// two9twofive3
-// 9kfivetg2five18
-// 6fivenine2
-// 2dlgpxsq7sixone6
-// tnqxgjbnc9bhqbgtwodxssml
-// 18sixcjthreetdtprgsix
-// 65sevenfive9nine4seven
-// nine34fiveqjdqc
-// threetzvxrb5vspdhrmjcnhtrzkqhd4
-// 67nine8jrxt39
-// 443oneklzsrtwo4tbbvxblk
-// xp7fourseven
-// ktsrninemlldztwo5ghqfgh55
-// five6eighteight7mtstgjlqmngzonetwonec
-// rmfourseventwothreedjtvf9
-// rlsgqhhvcdvthreekzjdssslmsixfour5rxk5
-// sgnfjqm4fivefiveone87nine
-// 6twoonefive
-// sevenrftrnqrjs1
-// bcfgjklzfbnineninefivesrpcqtwo4
-// threek7seven1fxslmvnhmffqqvbfbhlceight
-// sixxzqz9fivethjgdv2
-// nineonefivesixtcrjd5
-// 5645ptsjfrszgr8
-// 1threezkpgczxr8four3oneqm
-// tvlfrfcnlc56eight8ninesix7seven
-// 7clvmrdvdgjg
-// 7mcstlktwo
-// dlxlpchr3eight
-// 3ninelrzgkhx85
-// jlkqzonefourrvlptlxxgrthree4six
-// rxhpprsqtd982t
-// six4671nineonesix9
-// eightsixtm9vngskjglgvrbsqgcmxczbqqvxqxfj
-// vxfmc1six1ninesixnine
-// 39fivesixthreevmpm4
-// xllclztxcxjskgfourlvggrvr25fourthree9
-// 31sevensixninedpfrvvfftc
-// three64ctshdpcsfdjth95
-// fourgcqf8sixfivepsrdqvrld
-// 5nine1qldrqhvfour
-// 5three1three
-// 6hjbgdqjtlppzoneninesevenqlmvgkq
-// eight1three6sixthree5two9
-// 17141oner
-// five1two7
-// sxcfxblvfbtdtlkdpnineztnsfdkmeightvrr7fivejj
-// eight183krc8nkqk
-// sixthree38fourkgfbbv2sixsix
-// 922threeeight4moneightsm
-// 3threefive8bdzjs
-// onechvnhrfthreebqfive9
-// 8sixgkvzgnfkjrrxrxvbvgvx
-// meightwo1dnbbpzrxftwo8
-// 253lqt1bzfpqznz
-// klsgclc549rbksgrbbh56
-// 3xksqcrhdsthree
-// 55nxbjvps3nbmf
-// 7qzzfourtwo1688
-// h5skqsrnnpxdone5fivefourkffrsblv
-// 3fourfive2
-// 25stdpqvgmzg9qksix5three
-// fivenxhkvbscrxx1j4
-// dtszrbcgpgxbh1
-// fivefvrp159three
-// 68mdjsggnbtwokmthtwo286
-// xtwone7bkhjqkmmdkxvqtxfkpmckj5
-// btwonetjkkdfqphr2gkknfz7one
-// ninejgnxcchjqsevennvdjvttnqqsix6
-// 395seveneight
-// lfrsoneoneeightfour6
-// four9prvhcqdnrgjl
-// qhbkninefive73six8
-// sixkqjtrs1hrmnt
-// 5lmctnqtqc49eightnt
-// sixghthgcnpfeightseventwo3
-// vvvjbvnjfeight41nine
-// 9gkxpcrql9three4
-// 65seven4eightmjnh2gbjjstdgb
-// 8four68seventhree
-// 19924nine1lxnfzgt
-// fgjtbsfour4nine4vqfznznqxnsevenvzn
-// fiveone9bzshjmdvdsixxknhmmqskone8
-// xqjzgmdmnfivefourthreemmksmdsix6cct
-// eightklfnlkb9
-// rmtsdblmcghszsfgd66seven1bct
-// twoseven6
-// psbfmmmrppdfm5ninetwosixnine
-// rkcgdnslc9pjtqvgdmbvpkbbksxgr
-// mxjpns69
-// rspjpcv4fourthreesixfourninevlfive
-// 2dgjgdn
-// 66five8qxeight
-// five93
-// six7twovssixsixztrmfdrrvgqtdhmh7
-// 32sqltqgoneightd
-// 4five8tns1six
-// 277
-// pmrzrckf6
-// 8rglvpcttwo1twofive
-// fivethree644hrphp
-// fdpjb6
-// dfkpmgxfgfmtklbffk4sevenfive
-// nhqfpnvpsqpffour6neightfour
-// threeseven9eight67three8five
-// txttqnnineonefiveninesixlbscpqp1
-// three2sixtwotwo7smkmq5
-// 8bjzjrnpspnine5
-// 5three659fourfour
-// qrdrk7fouroneseven
-// three7threevhct
-// mpjpgfbt8five6fqjbghvbpcnine
-// 7zonesevenzmlvfvzn
-// 2hzldqdntffxhfpxlghf6threeninejrxngnjq
-// dfppvqcvthreessnnm65tqtn
-// 56nine75rdkxdcmj
-// 8twozvjkdltz4sevensixfive6
-// vzpzllmbghcccksevenjgjghqjr98
-// fgjsgxlh48sixg3three8
-// 4eightfbppqltgxttoneoneseven3
-// six1eightddcthzd
-// fiveggljcppdeightnine5hsbfrtninenine
-// 2xrdtzfnhpvpgone
-// 982
-// two7nine7eightnine4
-// one431
-// eight9fmbfqxgzlskgjrrksr8six
-// 9zhvdllsszd
-// 4pnkpxrgltkdbztlnz2
-// 4ninebkh6ninefiveh
-// five9ninevrzxhfnggfourfoursevensixlncsfdvrz
-// rqhjjxzeightnineseven7fnmbkrtqgr
-// 8xfmqdone
-// pnszhd1trqb71gfhpjpq
-// 9htfkgbxlht
-// sevenoneqgx29three5six
-// fourdlscbpbpb9four5jbdjzqqdthreerhqdsbb
-// five31sevennbmrbhtthreebzqxvthree
-// one4c
-// three38183threesix
-// 6rtdclcbfbbdbeight1
-// 2one8xdeight
-// 2sixsixtwo
-// nine3pcjthmlmtljkrzxcdxkbmgzneightzcmtwohpdpkvqg
-// 9two81qlhsrnfpdksdkd
-// threejrgxc4seven26njlmtbheightwodjh
-// lrjzhghhpk342threeninejskdnjjltt6
-// 46threegj
-// ninedgpkqblftq2b3four
-// 3951sixssgmjj3
-// 8jteight4
-// three6mdvfkgrxcjmfoureightfour3
-// hvbf28
-// 9fournine713six3
-// four1seven
-// 763twoseventwonine4
-// ctpfmnsvcthree9sevencbqtjc3
-// sevensqdhvxd36
-// fourninergfmdxpdbt1ninefour
-// 2kptonesixzpqrsqzhv
-// h4qcscfxfctjbqnff1sevengxvjjc3
-// d8cnjksdf
-// hzcgnine35fcbxtlg8rjhzbjfkv
-// jdvoneightdpfvzvp758fourfour
-// four27jhrgqnrjnkzffour5
-// fivetwoszrxz2fzfrbgqntjf
-// onergnqpl3
-// ccfqnc5twothreefoureight
-// grgsgxsevenkvzfjppnzq2sztcfive
-// 9two94onesix
-// nine7seven7
-// eight36
-// plgsevenvfljnqvtfq5two
-// threethxdbnz49two2vdxbpqtpb
-// cf9fkrbrvjhssptthree
-// one5lrcn3klrcphllmz9
-// onesix6seven8tzgfdbm
-// 964khvfxtrljs88
-// trszhb48fmseven
-// tdfxvnhrzv8threesevenkgp
-// ninegnmjxzbtcb32four9mlpkbfqdxdkoneightg
-// sixnineeightnhlqfslb2v
-// one83fc7zs
-// pxfkljdbdqqqvnrfivefoursg5nine
-// 2onevh
-// 1fgjrsdlgnbmsbzsevenfive
-// 3nine87pmsqqntwojtnrksdtwo
-// two59kltcxhzszhdtwo
-// 6451
-// sevenzscjhgpfgsseven7threeseven4threedlbtxtcvl
-// eighteight8sfsvhbkf9jgfrddx
-// qlvdplcqtrcj2eight4
-// sixbcpxtjt4onetwothree69
-// 91fourrbblcl
-// twozvqbsx4
-// twogfh73
-// onesixljjrlonethree3rxtwofive
-// onefour62
-// b7vfplpqnine5
-// 67dgbmmjsevenfivedktq
-// 7foureighttwo4
-// sevenctctvfg51tsbzqgcvpvslqb
-// mjkeightwo7eightsb6one5xzsix8
-// 151dht66
-// 93tkbs
-// 29two
-// foursixtwo5gprqslprxkrbfbmsl1six5
-// one3six3
-// three66rbh82bgtfzsfrkhrv
-// 2sixfivethreefiveseven
-// fcjttg4onesixtwofive
-// 15seven54
-// 5kjdkr9htl
-// gclrsklbvkfbdcb9seventvdtdmmmksh52xkxtpmfpvk
-// spone7eight5xzjrlxrnzjtqgpdcgrsjn
-// vs3fourdkdlhx7rb
-// 9ldxtdk3
-// 4dppnthreetwodvkhjjrqh1zbqxntvtxgchv1
-// 1sevenmsdrjgqfivevphqmxzghktwo6fdvkvqhj
-// tbptrcvxhs9qcdxcpvp
-// 8five2ssrrhgtxfone
-// 3clvbm2g961
-// four2onegkhbdfive5vxvxvtxglg6hxrtlhzjh
-// kfhcmflznrg9qnkkxqcsm2vqqtrdg8tjkshzpnddvd
-// eighttwojfktjcrqthreepssfour39
-// 359nine2fivevvscbvggjhbnnzqtxfsbpb
-// vvshjlcfqt6qjvfjsix2tgsjbdxgppq1jmr
-// ninehhmeightcvqskvjptz2kdnhpptvkz54
-// 39threefourndztxcl
-// sevenfive7
-// csmmpzfsix41
-// 9cgqxtpdxt2
-// 3mpzvlxrzvhtj
-// fourkqhzsjjjvx3six1
-// 52one
-// nineltplrl8tfzqmnqeight
-// sixfourdqrfvrvbvfzzgb6
-// mqnxglzjk6qqhzksklvsmthreesixmvhmhbdkqpnxcsgvcsl
-// 65
-// zqconeone85three
-// rxnhdflsqdqglxdmfxlxponeseven4one
-// 88nkgcglftwodfxfhzxbqdpfrqmtwonenf
-// jzoneight9htkkpszpcqvkmlvl
-// 388xnq
-// 9xhlrqnkjpthreedfknpmqqtwo
-// 4onemfzjfvmhhfive3two5pjdcf
-// djqjglztxs5nineeight8jdzone
-// four35ninefourfivethreecnhntp8
-// gxqxl6fourlfdtndgdql
-// fivenine6
-// 1pqctbpbbgrmgqfqbzbjjt6
-// xzvjjfnfr28jblqseight
-// ctwone23
-// 6sevenqjtwo
-// 8nineplhlmsgjvs1
-// lmjgmltfivenine9
-// 8gxnnnjonesixtwotwo1
-// 2seven678cdxhkflhj3eightthree
-// djzninefour3one
-// vbqhjjhpzg86rkzdjzfj
-// eight1twotthreeqqlr
-// bkxseventhreezcjvdkxzksxrznp6four8
-// five77xcvphzcnlfbgbxnqbhfrldg
-// 71qxqdncxdjsix
-// eight6one6jnpspgmhngzrfneightzdnrdhj
-// xb9skhpnfjsmq
-// jxgtk618fiveone1zr
-// 8dkdnbfr
-// 3llplnp4dzdxfhbvbn7two
-// eighttcgrbhrspktwo6eightddxhqqbprrf
-// eight2mpmzsevenrcbmsqg2cxjvmblnqbqdjsl
-// seventwo54
-// koneightsix22three
-// zdsnjr5vxrhkthkr8qmddrzclmrkprmvbll
-// fbkmfxncztwohjbfgkhgvcdkrpnc5
-// ksprkgxkjnineseven3fivebjpqhrmbdtwo
-// fourpss5
-// 1three9fbnnrjcgllkvcs6
-// oneone9kjchnfsv9ffcdspfive54
-// 26ninejctplmsgb
-// 9ftfjrmvjblzqqmrdczpone3bphtmmkm
-// 7lpssdtbc67mhnthree9cndbsthree
-// fourfour49four
-// nineeight8bzeight
-// 128zpqftnxnqz2threettrhscsll
-// 1xdtxcg4tkxtsnl
-// hmxbjczvgmcrd9mqsfivefourninethree
-// 5hseveneighttwomgxmlmskr8
-// zdtbtszzkbk5
-// eight5nine6xthreefour
-// 9rbfcnjztthree4v9vn
-// voneightqdtnrtc4
-// 86cnzxs2three5
-// eight9seventhree
-// tjmrjgcfldqtbrvnzzxshxkrs3onefour
-// 2rxplslzcglskjxgthk76cczdbxrp
-// sevenpdvsbhkknxqkqxfcz6bhmkxmhdbvhcvvhpmv49
-// three1twotwopr2lctfjb
-// zrbrqmh87dmxzmtfvthreelsleight
-// 34dcnd8eightwombx
-// two9xnqtcfgq8tsqzvd3three
-// nine5fq3
-// eightsixfivemtcgzlbkheight4
-// qlspgfndmx5twobtjgzgvzmcone
-// 5zlldrzrffgggtwo648
-// seventbqtkpfivel6
-// hjqbmfnnqzmf4
-// fiveqhdfsnjvqtwo6two
-// jftwone7
-// 4twolqvglgxcc
-// twoqjmgjtrrjjt1eightcpj
-// eight9sevenmlkpsbzmtnhdrkbmj
-// trrpdninesix8oneqxtrzf
-// 5sixtsxqdbnczhbvmfkvkc
-// tvbf2
-// sixtwonjssgpljqrxhlstfx4xbhqzlqktsixfour
-// kfxccb45tzsftztxjhgnxqsxknl29
-// tworjdcgsgvsix6
-// eightjbqfive26gfspjh3nine
-// 2sqhleight7cfkhzrsevensevenfive
-// kzpzjcrl98sfive
-// sevenrsgtnine4pbgvrbcpf8
-// 25q3qkcxlvhrxdonednbtcrrvjlnngq
-// twothree4lffpxvfcgqrkvdgzdsdjxjsh
-// seventhree34seventwofive9ckm
-// three25skfkvqdmbmsixxgqx
-// three1eightthreesix4
-// threeftjlv9
-// 6spbhfckxcdrxlcg6hxcfive6five
-// 8drbfjrgzvs834slzhsbgrjm2seventwo
-// sixsevenfmrvpqbgx4ncrmvfkjx62
-// lqfsslkmstwo7rgnqeightthreetnlnonehszkrghlnt
-// 5onethreebxxfstvd
-// djchrbjcrddcqfourmnninesevenrdlpfxthr2one
-// three3threeoneninepcrjr1
-// twothreernxmhmtbn2fourtccrqhqs
-// lzzdpfourtwo1six
-// two3one3
-// zzcnprtjdr22286
-// seven5qjlfrhj7seven8
-// seven99
-// mtztq6one37oneeight
-// mrfcssmzxpvcz2sevenfourfivelpzqkvvdxmmpmxqshskfnh
-// nine8rtx71
-// 1llzpvcdgmvoneonepksninefourthree
-// gbbvkcfive18two8twonineseven
-// 2fivenztsix2nine
-// gjqnnr422seven4ppbsqdbpcfour
-// fourtwo5one7qfgpmmphdtl
-// pglzjrr4fivebclpf
-// slrrcqxxhtwoeightseven6
-// dnknxxkbjplrkjone2threesix9
-// htctqnkcmfqdxrzd9eight9seveneight
-// 8sevenfiveninermlrrzpcdxkjkczhgpx6eightone
-// eighthnfxhrtssbmfxv6v
-// 6fp539
-// sixzmsfqjzpvxjkhfqcrbss7xgg15
-// nine5ninevddknzczpxgzjx
-// jbcsf3
-// jjbstlskzxc5nine
-// jlrvgcbch7tnpfjnczdsrgddrseven156fvdmfhtl
-// one89
-// three52sevenlxxskf7gxh3gb
-// eighttwo59mqzdlqjdkkxgjhnktwoone
-// 519six
-// 1onemneightsixdlqx7
-// 7fgszpqcj
-// sbfjtrfvnv6four
-// qtwonedvkninercj8
-// ntrnzldltrvtcsh8eight77sprgsvfdljthreecndckrzmjl
-// gtspn2
-// 54six6mkjznlb
-// sevenonethree3sbpjqgltv
-// four8two
-// xdzrskv3974mgvjlhzbkddhcxzzxv
-// 6three1mtlxshtxfpnine
-// 14threeseven6
-// 37threeonefpfgmz9
-// three3sevensixeightfive1nkjtndgrd
-// 2dsmr7qhmnrgbsrvjmsbctwovb
-// gkdsnnqzlzdvcgthree3fivedzvpcfive6one
-// 3vkftsclsxtxmsjeight
-// sglkcnzgz4mnhgblxqgdv69
-// tpcjb4one73s4
-// sevenrvhhxjcfqgs32six1pjvltwo
-// 8zmktmxkbc5mpgrtnxmnp35fttpmdbhfm
-// 1sevengeight
-// hghs1sixvvjpmlcponethree8kckgkf
-// gkbpflqvh1cbddlvdkzhfmzcfourkmckngsevenxkjknplzv
-// 5sevenfk5qgfshtqseven155
-// dfjdtxjxb8fivefivebjtbggkdlpxlmnrcdt4jrrpnbtvlthrhmczn
-// 2fivefivejxhh6
-// 41threehtwo4nhzdn2
-// 2fzngnxvvpjrqxk6
-// 53sdthreeninexrfone
-// 6qmrthlzgqeightrzrdglxvscgr
-// snkmhszcbmthree5threejsvkpkknpeighthbv
-// cmgb9seveneight
-// 5djnine3bcffxgjbrhxbfhgthxb
-// 1flqjgsf2ms
-// fivefive7onefour
-// threeeightksmhj94jvfvqrsgqrsevenj
-// jttgbfmh9468ddshrxnjthsix3
-// 25four
-// 9sixseventhreefiveninefive
-// eight5twoqrfgpkbdfc3qxfmchrjx8kpp
-// nineftnvllx1rjzkkt
-// gmeightwothree1fgfivejldgmt
-// nine966fivethreeninecpmgsxsxz
-// 77bfhphxczdg2eight
-// 89hcgjjtchsix
-// 1onexps1
-// 3fourkgm
-// hjgnbninevxdtpnct7bmstnczzteight23
-// twoone1qt8
-// 43744
-// fourtfgn2
-// sixppztkbvllkltbs51xknnfive
-// tqxoneight5
-// twong3zdrbpqnb
-// fivebcrxk198three
-// 435sfddjvfg56vkddkzhhj3
-// qcnhlbzmbld2fivebsix
-// zfsrtwothree8
-// nineeightfivetwomcjm2seven1
-// 3gbnxlzxhvzzgfjjhf44fgbccpthhnkpht
-// 3ccmrkbfour68ninetwonebz
-// sevenrccgdjrqj9one
-// fourzgdfbsnlb66txclxgp7
-// jmzlbtgbtl8three
-// 6nine32pr
-// sixffcsmhlfiveklbmgj8nine
-// psmjrt65tppjqeightzqvglglnine1seven
-// fourninehhzh8seventwoone
-// 48two2vzbrl
-// mdlzptrcsix3three9
-// sevenlgr3t
-// 7sevenpphjhvdhkheightwojv
-// seven3756
-// four85
-// 4twoonettmxjncsqmgsrxsf
-// fivesix6twofvzqxpphzmlkj
-// eight1twojrzspbfbzkftwo
-// 5eightthree5
-// 31ninecjnsevenjvbsvpphpxxkcnine9
-// nine5vnine486vrhbkgl
-// sevennineeight97qpdlfbskz7sfbtm
-// onernqbxt8twoone
-// gftjrbmkmngtshchbgfc1nvvt5
-// four5dgvsixzhlxnnmjhkhkljcfdpeight3
-// ttmfdxhd3ninekzbtsixnfmvfour
-// 8pfkhxhmh8xkghgdk
-// nhs4threemxjpbgsix1s
-// ghtwoz1
-// sixdthree7vlfbpzcm1ndbbczvc
-// ninetwo183
-// twofxsdt36fcthreethreeseven
-// 7grvvzqhcbeightwopx
-// twoninevknhnkgdmhmlbxkeighttwonine4
-// 4fourdmclrghj2
-// sevenmtgvr8four76fivekdqbsmmtq
-// klgpeight5sbknbhvsixfive6
-// 2vddxlzfpsrqsbsixlgrfnhone
-// jxfhlzcp6qctpqhb1
-// eightd1162jsfcsplrctwogcpzlhqf
-// one4four7xx5
-// threebqmzstphclb5fiveninethree
-// bkxfxxms6eightwoxz
-// nineeight4four
-// sdsgszdznng4sctkfiveszkdknqjf8
-// vtzmnllvvhrcfdlxcxxlqvzst1
-// htzxcxpvqj91sevenxrggdtjzbrgcv
-// ldcnbzstq4ktzdxgmcl
-// twohshbblseven4grzpdtfmjn13cmg
-// cktjnhdnine1three9mjqvnjtkseven
-// 891ninesevenxbdjs
-// kxjpngdtwomxttdqcdkhdj686sixl
-// hsninefourcxfj3five3eight2
-// 6eightgkkr1one
-// 658one
-// zqgrxfourfour8
-// twobbnfkdtb9five21zcfiveoneightjgt
-// 79jsm55twonine5
-// eightftk2two
-// eightbjbvqscs5pvmb14lgvgfv
-// four4four
-// qmzheight5hgfourkgtqfhjfournine3
-// twofzdqtvssx2
-// 1fivefivesixsevenone47
-// xhrjffnine8
-// oneseveneight72fqgzscqt5
-// nine7fours58
-// three2fourseventhree
-// 35ninesix
-// qgjsrxgqb5
-// fiveqghjjvjthree4eightqfgrhblkjtwo
-// 9mvcm
-// 96fourqzdsix
-// vbzqmmzbvrbxltvlfmcpfvnddmgsbb6four7onegn
-// three3qnlxmkhpctwosevenfourvmqmqlgfrsn
-// 2seven5one2six15vgnqzpggn
-// sixljtvqzlh1
-// 45onesix
-// foursix44eightseventhree
-// djsix84rnx8z34
-// 1mkgthree8two9956
-// psgnl6six5seventwoone
-// 546cfgr2three
-// thtpczmkskptzn9pqzncp
-// 31threeninesn7xhqvrsv
-// threehmjpvctfhnmhs57ninepzfvq
-// teightwothreesixdzqhvljk84nineninesevenb
-// gvptkx9rlsnmtwoonesqfxmzkv
-// 7twojszdrxcxfour
-// 3eight617npsbbrpkjtzsmeight
-// 3sixqntvpttddsixninemtpb4
-// 1onefiveseven2fourseventwo6
-// 67foursevensixsix2
-// one7qeightonehckxhxdfjjzsrdnj
-// 38onehzjxg
-// 4splxs1zfvfksevenkrzfive
-// fourfournkcj9
-// 1ljmbhcpttjnine
-// 2xnvfpdgccxfivellztmtpnc
-// ljvlxplhxfsjqv6sevennine44nine
-// qdonefourlnrzrgthbt1
-// twothreehvvhsxzqz1chvbcsxtll
-// 82vmfjbvssmlgk2dbsljgvd3
-// xzfbfmbbxfeightgfz3lvzpzbpmv1four
-// oneeightfd5ninetwo
-// ghddk7six7xqmglkvnqonesix
-// six1eight
-// 7five5ptkbvvvfive
-// 3hftgthreehcfrsnl1fivetwo
-// 7six12onebhpz
-// mkqjv8bzdnt9sevenfourtwo
-// five3mzgqnm
-// sixtwocbjxlgvp1twoseven
-// dkfmbzmvxseven971
-// bninetwojnsnkc7
-// ninekzcpfive4five3phz3
-// eight8143
-// eightrzdmxzb8eight6
-// 5pdjm22ninej37two
-// fourtwo8fivetwosixthreetwo
-// ncttc71fourfivejpjzcgzpj4
-// 5882three8glcvgnfhscbtmnqmnh
-// ngxkxtwo9pltbbmxrknvjheighttwo53
-// twoninenpqqqgsbsq3fjdk
-// eightsevensixhtsjvxjc8jxftgnptgqsixvcncglzlgq
-// sjxtcnt8gpeight7cbgffmgqksix
-// fdsn9threenineninetthree37
-// 19rrfdqtpmonetqjdcjtxlhkptccjn6mtztqhvvtqftbv
-// vrhprdjsfour28p4
-// eightfiveeightninevdvnmbv58vrs
-// qdzhzrhlfl7hhxqzxqdxeight
-// svnbzgbhxjcx26xclfgs
-// 5lcggbhzrmnknine83txffvcdonecrqvvjf
-// six5fpncsbbqbbcczcmbgrqmndxmrxloneone
-// 1one6
-// 88gctsmp7eightrvshklprtm
-// xf874onehhcknx
-// sevenvvncrhvxjxnzsftkfhsktwo3eightfour
-// 8ngprdqfour
-// 98fmrxpxzzbrjpxzqdxmv
-// 2zbxzsthreefivefhdbhvjjxv6btwonef
-// jzkjcvpn924qjcbr97h3twoneff
-// foursix3
-// 9pmtdjvrxjrponetjlxbdzbvrcjtc77
-// 52twoeight2fourh8
-// kpzfztlzlkdprbmrhsjcxfzsbch31
-// 4fivebtfjmfive6seven
-// ccttxjmheight6twothreelnjmfoureightnvcvpmpc
-// 6twoz1dzv95
-// threelsmgdnxcsevenqr4xrtthzgkqxsrdssmjqv
-// fourgpvjxdg4qpvfivefive8nine
-// 9mncmnhrclsq
-// 9zjfmctz
-// pndgptggnsthree8xlcctvpsix6three
-// 98npgrlkqmcninethree
-// fivexp6fourdpckhqpcxczrfbr
-// six2xdgsqdpsbmgftzvqhnjg
-// 7ninepqheight2eight7g
-// 2zrsevennlpcljnp
-// twoonethreevvpfp1jrhsevenfour
-// threebzmggv7bjm6cczkbsronetwo4
-// three1foursgvfdrrqmk4two6
-// onengzkkjsxsjlxxxthpd7xfcvkthreefour
-// sixnine5sixeighthlvmf
-// 63gkmbsdc3fourmgrjhrlbqgcfxf
-// 2bmldthree7skhhpxfonenineone
-// b6seven7
-// seven39
-// twoffxbsgpcxctmmvb4kdhn89
-// seven1fmgtseven
-// ninegxbdmztzzbqq6lgcvsbhzplqt
-// 7twoonev
-// 24nine
-// tvjmbzlsjtrtdhdlvnffmcfoursix6sevenonebvq
-// 5jpntjsthree1threetkbsh7
-// sixone423fourqnczdxcpmsvjpzhl
-// 33zdfourseven3
-// 77lltwo5nineseven7djjmdqkqfd
-// 4xfnpfbtdl7
-// two5ninejbrfrsbrsvzfivenineseventwo
-// 89znjldjptdnfkeightkpcxdxcc3bkmfhtzkkh
-// qlkxd1rv44qlhhpjrninetwo
-// 6l2rfscvcgdm7
-// rhtsrbrmlnfvseven1eight23dd
-// 7xcglznxrjzsmhqnkqjhbjqxnjpjx15six
-// fourfiveq1vcsnnsxkmrcjscn4sevendbbtjh
-// 6qcvjplvnine91rfjk51
-// jmdsgfxd5
-// tlzpvtsvkdsixtwo95
-// 8threeeighthvhlqss
-// threetpxxlmfrhpf15
-// 4twoeightsix
-// rg8nvrtzxjvfddkeightwofzs
-// tggqninemk1
-// mlchhftqkxtbhfpjsixnine817
-// 231rpkxcvcz5fcztnqskqtwo
-// five9hhrtmp9twosixthreeeightv
-// 9threeschsm17
-// hhreightfour171dtbmhzhhjb9fgbg
-// bhgp6
-// fourztzlhdr2hbdlv8fivenine
-// fourseven8seven
-// eighttwo8eight
-// two12
-// threenine76ndvklb
-// twoseven9jxfcthreecnrpvglksc
-// 84fivehmf
-// jpgbtnrsb15eightgdtqmk
-// 34two8eightbxqvc5nine
-// four4hsgjmtbfrvfivenine
-// threecfcx8ninefive3xone
-// cvhtlnlnhh71
-// four9sevenonenine9ninejlgmtvxmxseven
-// vttchshfgfpdbmpmp338
-// nfcdnhq6nineeight79
-// rgltnqzrzfqdjsfrhzmfivetwogklxqdhzbjtwo5three
-// five3n69fiveninesixtwo
-// nfhheight12clcqcnpdbz6nineseven7
-// eightgxtmstbthreedvrqllvp1ljqstbjdhcmbmbeight
-// two26four7three
-// 6rtninethreefive
-// vhnqgdzzbxr9two7mdjzsx3lf
-// twothreepzxljpd6sixcmsxkcqkfive
-// 6threesevensevenjzkcqthfivegmjvstrsix
-// five7fivetwofour
-// onesixseven767
-// 36onehxdpmcqxsfbfive
-// 2hdvqrlhs5six
-// pjfcjrnjnk9four99nineskshccmmnvxzvhvqmcprkdqvhhk
-// 4gronexqnzdfthreejgqt
-// kvrsixtwofive2
-// eightfourone4hone
-// cgbjtdbvptworbcz3
-// jpgmhfour1
-// ngbgjhlstwokxc8onejlhczxvnjbrkqzdl
-// chbmqrz3fourthree
-// rgvmkpeightqdssbcgf9fivefive
-// 5vgrscgshtbfgbljt5
-// pxgq5kffxbdjgq5cjnpzfdt738six
-// meightsvfb47xcdfkhf5
-// clzqdc4five1onexfxlxnltfourfour1
-// fivesix3threeseven
-// tworgklxh1threefourcsrsbj5
-// 3fivepdppjlmmb6fkgrcbldbxsdjpbvbqgpj1nine
-// 9clvlvsckdmjsbxzrmrhfour
-// fourlptwofqspctl913
-// 28foursevenrfjfive5qrfsl
-// gfhmkfln2jcqttonethreetbmcdhhvbnmqdgsbrrmpk8
-// eight35qvkxtwo3fivevfive
-// 26fivegpcqqsjr7five
-// three1seven4
-// 9fiveonevmxhtndtfzmnxvtjkmr51six
-// 64vgrgtwofour
-// four9one
-// nxjtdt2three1three96lfzglzcfour
-// 355six
-// 9lvqslrvdrd8six
-// 9threetwo35six
-// two57
-// phpkcmfxvt7gphd1qglpmckhnj
-// sixthree1ffrdbsix4two
-// spbscvjfl8vvkpjkshkx3
-// 5nnjdbjj3
-// bmmqrrkdcfbctmsk124eight9one
-// 4rxdpvqlhn
-// seven13glpzfknqtxdqjq3qblzcjvx9
-// 8bnkbzszkxkrrfdmcstvfvp
-// nndndjrs1qd1421
-// twovn9four8five
-// eightrc1
-// ltjvtcqfzdfourseven8kvcx43
-// vn6ninelr8
-// 2seven1
-// 7rldpqrfoureightthreesfhz11six
-// 56fourkmvl6threegzfqnlrlz
-// 8mkpcsnzmknmzpjppf8two7
-// bzgvzcpkqxmbxcqsix4qjzt28eightwoj
-// threesixxqkshhnine7njtvvxfmjl8
-// 5seven6vqcd62sixone
-// three552
-// hsslkhbd88zjhqvgtzpfour1
-// oneone96fvjbmcnzrr
-// pspndcdtctwo6
-// v3one9
-// fivefournmrfrzghdh7twoxmpgkps772
-// vdkqxqnsthreefive25
-// kgjsevenczqrqf14pjchtfbnnninexhgn8
-// lqkhzjzm3six1one3
-// 1three3l61seven
-// 1flsfhznl
-// r8hnbpbtrzkstdg
-// hhrmnkktv7seven29fourpvjceight
-// 2mbft
-// 954five9fivegbmlz5
-// dshbfdqdjjgtxffjmllgvxjfrstgldgdxjsfxbone9tgseven
-// fourseveneighttdgghnfive7pchxddgggcq
-// 8zx5seven7pffldzjhdb8
-// bpqslhkt33sixnlxckbbr2
-// xqmxvjcplh4seven
-// jd9zxmz2two1kvsghkvkpz
-// 9blk3
-// 6rjvmrjk46
-// onetwo6ninehdrlnxgbc
-// 6drvnkssqzv5jfnineseveneight
-// sevenmvxlzmtwox49one1
-// 8fxnnjr18fivefcf
-// five98sixkblsvns7mgttvhhz
-// 85qkkg463lxdhzdtllqtv3
-// fivethree5eightfivessrnhsmdrnvssxfgxmsix
-// xgmqjone7j
-// pkclcg54
-// dvllcqqghh891pdlqnbtb6183
-// 2qbnqkgncqrvlfntwo
-// seven7qdfzfpfivepnbhrqx48
-// 682sixqtwotbgnsspzqcntlrhpzcq
-// 2sffrxkgmsixfivetwokfvnlhz
-// sv9klzvnzsgjmoneseven
-// bzbppxbdpxs9
-// 68ninetwo99four5grdrrkpr
-// mtfcscprzkeightfzdbhdndqh1njdfourtdtflbfjrth
-// 8nvdtbrfrvfivesixtwodzxfhgpzlk6cgkbr
-// 3slmzvnine5fm
-// eightone16nine
-// kdzrjbh2txzz5hbone96one
-// 17pgtwofl41
-// eightoneqjvzv3
-// fivetwocrhmvxqkvbeightfive1qzcxvds
-// 2htzsvdhvqvdjv`
-// 	fmt.Println(CalibrateTrebuchet(input))
-// }
+import (
+	report_checker "Yom3n/advent-of-code/2.2024"
+	"fmt"
+)
 
 func main() {
-	input := `68878   98732
-24519   87903
-73275   70114
-87985   89419
-80485   75440
-98994   55979
-28041   41805
-50762   92905
-23796   72412
-71699   84915
-43168   71645
-12985   96078
-38491   34431
-30867   76208
-89794   10790
-59797   86225
-62401   50098
-90230   45208
-40596   36238
-52821   75949
-61994   85771
-62756   70340
-91145   33842
-57051   45050
-36257   80983
-36465   84670
-98498   23292
-49344   50098
-13100   22817
-82572   57598
-77578   36555
-99900   91029
-75949   26486
-50711   74711
-52402   27513
-69977   71045
-23803   41588
-57399   16399
-81372   45126
-98985   10547
-76606   99481
-86993   78240
-54958   27513
-23734   61444
-25189   10790
-11983   91029
-53266   91029
-31226   16399
-54686   86915
-60013   40760
-29568   52436
-97354   44827
-91545   40986
-15914   60707
-64854   49298
-30497   66916
-39169   92811
-13341   98568
-89066   41215
-89654   33815
-59655   66645
-89071   48550
-91777   41832
-28820   23803
-68277   10790
-24747   20641
-19058   68263
-50952   65659
-77247   71079
-79147   28383
-89104   79596
-26384   27513
-58111   79657
-61032   72412
-45514   49298
-37369   80983
-66897   96745
-42256   18346
-53662   67789
-18203   50098
-14178   24879
-16119   50862
-85457   55460
-74217   62672
-72612   50061
-30548   32091
-21631   49298
-55905   19836
-15340   92089
-44619   28383
-67975   95646
-22169   56053
-15778   32810
-63133   98314
-42385   35192
-51645   87903
-30068   80881
-44510   83025
-50757   59248
-31854   16399
-54593   27981
-16570   11600
-21295   99780
-70191   38799
-64847   16732
-30348   30596
-92301   49298
-66545   23803
-32957   27513
-49572   10507
-10790   65414
-85781   24738
-32819   50098
-22674   23803
-44321   40307
-39258   19836
-25314   27018
-98446   83025
-96722   15026
-96131   51435
-60029   46857
-22672   24485
-57347   40735
-55089   65268
-93093   57076
-46410   40686
-46719   49999
-48860   80891
-75752   40285
-32025   76676
-58831   14816
-93208   75949
-93404   87903
-91034   54811
-74178   40675
-99272   84920
-24617   59248
-31004   22425
-49824   79823
-50187   76234
-64360   55010
-40773   10935
-93193   28383
-24292   27513
-66603   96899
-94711   49904
-81183   59248
-38727   50143
-47093   34542
-94395   41907
-39003   89663
-40029   57072
-90456   84416
-75830   87903
-33466   27513
-16427   59248
-49490   33354
-52134   40307
-67069   80983
-35192   57341
-82716   11017
-74969   49298
-16596   30045
-30786   50769
-69766   39818
-88136   94929
-29630   70754
-98865   52818
-83025   52968
-38613   75675
-34339   87903
-20221   11583
-60785   21075
-42016   32352
-50862   54811
-91144   10790
-82759   92299
-34668   35814
-80045   80983
-17106   87903
-47417   28383
-62403   75949
-58496   77896
-98013   75949
-82894   34330
-93384   44962
-95803   10790
-76669   66543
-14186   80983
-40149   58549
-50049   40735
-62487   55256
-32816   59248
-84420   67838
-54052   83025
-91698   73884
-62982   26639
-34047   65346
-32974   19836
-36970   14966
-14307   18019
-26904   87903
-36343   72547
-43235   89108
-76676   72412
-55938   66916
-34071   16143
-72820   64337
-17369   17215
-46104   45050
-88124   73288
-31485   52329
-50048   87903
-11820   51419
-81418   69376
-45029   97736
-10581   25449
-49081   33618
-52159   99078
-81831   98314
-88990   32303
-43609   44962
-32213   40285
-40285   83782
-99022   50098
-53784   22929
-88877   40307
-50928   58596
-41715   92182
-88640   20046
-57029   69964
-47786   36174
-85810   15842
-11369   90510
-70368   27513
-94570   64489
-39889   80581
-13275   16427
-68274   27513
-77936   51774
-15466   29702
-44729   80983
-32438   16399
-41087   23803
-60462   49298
-65311   76326
-32702   40735
-82433   97292
-93862   90212
-33210   81930
-94761   90283
-42167   74463
-35098   48550
-27078   99873
-54429   12606
-27075   89108
-97224   73884
-56433   68263
-30526   59248
-40340   10790
-69964   48550
-58197   72412
-86344   18262
-28455   87594
-87168   57559
-73594   65764
-43616   54811
-36860   55905
-62313   46800
-63659   87903
-19649   40735
-63386   45583
-70670   96410
-25427   84151
-95907   50098
-90333   92116
-88441   40735
-52924   40735
-54606   93929
-53431   35192
-72778   94800
-32259   44962
-22837   15734
-41370   20407
-50667   91029
-23172   20736
-87478   78442
-18679   67415
-25132   27513
-35955   72412
-19951   42485
-92404   73884
-43932   75949
-89428   47755
-68629   23255
-18060   75949
-96741   67071
-46707   89108
-89112   92197
-55083   71071
-41640   66916
-17099   58116
-70851   16399
-23057   92148
-19836   92356
-25812   72833
-93063   23164
-45392   59203
-21796   69964
-97556   35192
-57076   97029
-58339   50098
-58116   62171
-91036   98314
-60829   59813
-22495   46432
-66493   29832
-15341   17977
-50093   59248
-20768   10238
-23220   40987
-51196   62761
-23277   80983
-37255   28383
-42832   93721
-60978   28336
-81525   16486
-75180   66916
-69316   49298
-29241   48253
-11596   50862
-34351   31482
-43881   52947
-18039   15790
-35090   47718
-37781   66916
-90037   44975
-58775   49298
-11066   92303
-35717   97563
-73565   49309
-26674   96015
-91767   35192
-20613   29701
-98660   26456
-19235   73884
-52519   61051
-40366   14356
-33606   59248
-67433   78913
-51982   98675
-21129   45050
-26259   59939
-41424   74011
-15544   18046
-85842   93362
-44238   54811
-50995   77228
-50211   45766
-88522   55008
-85664   10790
-83872   49541
-90863   66681
-12731   80983
-35092   44962
-89343   27513
-43030   59369
-14341   14679
-67832   54811
-65399   97833
-40649   53538
-99865   39569
-84679   16399
-37678   91006
-40703   80889
-36214   88977
-38351   87638
-41150   30413
-82746   40735
-34606   89108
-32107   18123
-35459   50816
-26610   23803
-18202   49298
-34659   23803
-89860   35192
-25591   72412
-11117   92839
-90319   83025
-36871   40735
-94581   72076
-56790   46209
-13136   81739
-12085   62323
-75208   37298
-80354   40735
-61593   39732
-21371   71180
-44422   19479
-37274   27513
-13294   41590
-12424   22554
-57230   40809
-95559   81507
-18733   43631
-95220   79915
-15071   92369
-70964   57296
-55914   83712
-57268   87903
-61644   20006
-14409   58116
-19343   90069
-79716   73884
-57337   79683
-35640   48701
-65868   66918
-21687   49298
-90364   90368
-81563   96307
-99862   35192
-50098   23985
-56421   33574
-87642   50862
-80261   57845
-80290   53468
-69199   73884
-52657   73884
-82897   13916
-55530   23966
-77782   54811
-60975   11030
-99943   66089
-14928   40735
-32910   50078
-73884   52473
-81361   58116
-13203   16427
-72163   80438
-82198   13938
-46030   38491
-33431   52909
-30199   40285
-58012   61365
-60604   88325
-66916   73884
-59248   10790
-52823   68263
-67584   38374
-35764   58969
-38010   35192
-53537   27513
-40680   90231
-77944   85142
-65080   80983
-15342   65310
-66994   49661
-46267   41636
-80983   95143
-78052   36273
-54944   49284
-37652   65872
-60311   89108
-51144   69333
-31653   48550
-55121   87873
-36739   66142
-20290   69352
-86844   80544
-90543   40885
-36289   61112
-42899   95984
-19910   73884
-16572   40307
-22864   91559
-68021   38491
-49918   73786
-93754   91029
-51211   96235
-98091   95113
-51208   26252
-12671   40285
-61367   89030
-58498   75949
-26520   61255
-16399   35061
-26388   40307
-20061   45050
-42577   59248
-46182   23803
-45833   22608
-75415   35192
-45131   27513
-78087   72412
-37845   59937
-73178   40307
-38346   10790
-36144   48550
-95728   35192
-24529   74785
-13457   62690
-80521   90830
-26709   87903
-96061   58362
-39901   75949
-59024   36414
-70572   73484
-26182   48550
-54289   44962
-77243   41357
-45652   63563
-61275   33760
-76258   58116
-87903   75949
-36803   72708
-34689   49298
-78499   69964
-97542   16399
-99456   23803
-31246   97810
-67707   66916
-53353   76845
-72413   81639
-77355   91427
-11696   37641
-38619   66916
-58279   27513
-32455   46733
-13767   10790
-53600   12534
-52611   86767
-69581   58116
-84766   44962
-25762   84153
-75405   27675
-94680   98620
-19072   83025
-64541   25303
-47436   48379
-55099   77486
-62938   40285
-85782   22822
-49496   68211
-26405   18321
-33543   53744
-98210   17305
-26641   70987
-78605   23803
-48550   91029
-91470   59527
-76437   48391
-26589   68552
-37984   42659
-47771   75949
-69492   69964
-30910   17034
-72127   48550
-20323   74549
-68586   54811
-85656   49347
-50811   29122
-91633   13067
-97829   94888
-64580   30618
-87031   50862
-16689   35192
-93352   21275
-91740   27513
-86775   66916
-63447   40735
-69321   85095
-21196   96099
-40135   24597
-94728   83025
-68263   78089
-49758   75949
-58570   40307
-70556   80983
-28954   87903
-23512   75949
-79621   26912
-23768   89108
-68025   71387
-94717   39913
-32934   38491
-25309   46226
-31117   91819
-28718   37008
-11096   80983
-82842   17899
-10104   44147
-15432   18566
-58103   81227
-36711   10790
-62998   76676
-56830   73884
-74532   40285
-10346   78375
-43025   31492
-31908   30023
-38840   96892
-42859   83025
-16034   68263
-56548   32521
-36514   95622
-93380   85880
-89108   49638
-14520   55668
-61195   65113
-59069   91029
-75276   89108
-94795   53666
-16658   43105
-23381   19836
-80772   80983
-22003   80790
-78628   73884
-53837   34325
-53845   85258
-87259   55484
-96036   28264
-43607   75949
-90261   55158
-97376   52565
-11241   46873
-13946   56491
-48838   35216
-26427   88573
-24683   38491
-61135   72412
-39381   47195
-66763   71602
-50727   16399
-26719   73008
-91561   57060
-27810   23803
-25003   80469
-87375   40479
-47591   80117
-15769   78617
-62428   95360
-58030   40285
-42184   59248
-16058   18264
-49021   66916
-60036   16399
-79735   64973
-28417   87903
-75666   34050
-45303   45905
-99666   58844
-83328   47904
-34405   27513
-40795   27513
-94482   57076
-73638   76842
-11760   72412
-18055   73884
-42382   73884
-74101   89766
-53388   22330
-80963   61832
-35307   75326
-24016   61479
-76700   69002
-11790   54811
-37543   40735
-23488   38262
-79409   73517
-84795   48550
-72611   72142
-24699   49298
-43748   48550
-89525   98314
-67690   26597
-77431   66916
-18256   65012
-47688   69964
-27275   54811
-28105   75949
-99231   47666
-10732   40307
-96670   82188
-67501   16141
-24786   95724
-72693   58116
-11436   11225
-44962   16427
-11976   57220
-23830   75949
-20155   29692
-49298   40758
-15879   38491
-46430   19053
-58886   32623
-38384   73884
-54723   67754
-40400   45721
-11657   16399
-45050   45050
-85338   35986
-83322   66916
-47722   83411
-16468   24658
-95873   81506
-41360   47035
-66342   36775
-87812   87399
-28383   39066
-91602   15602
-40405   89236
-77890   81548
-98616   49298
-22404   35192
-54032   44962
-52902   16399
-91840   98314
-63905   12686
-10098   54811
-11009   35192
-88737   23803
-64422   88518
-37474   95536
-41788   91339
-76027   15249
-17826   50042
-79264   64640
-98770   36874
-13862   57804
-38691   27513
-21357   78686
-32360   52496
-18251   48550
-38720   31160
-36065   75949
-35917   16399
-60979   18939
-91586   89952
-28849   67949
-40735   58746
-26437   19975
-86360   45050
-35949   19228
-83277   50098
-38624   10790
-52011   49393
-39123   39337
-27513   89108
-62673   15222
-94379   83025
-23909   90571
-77737   93244
-70404   70858
-62370   84696
-84827   44218
-53387   35250
-87556   89108
-80571   51193
-26409   91029
-13990   83025
-11278   34702
-16299   89667
-63994   65610
-86493   54811
-29416   78479
-17711   28383
-80358   80983
-56072   39436
-93254   73884
-91931   16399
-53072   98128
-24215   98633
-90482   97373
-21665   40735
-64002   80983
-84470   27470
-81717   67708
-41573   22587
-46883   16167
-19788   93408
-41097   23282
-80709   38138
-37670   69964
-49520   40544
-19523   42044
-83480   22439
-67124   88126
-90934   21464
-87043   65017
-50073   10790
-81378   61975
-51195   80983
-87524   10790
-54555   49298
-49730   84396
-91852   72412
-14863   93792
-74431   25266
-39883   80983
-99545   50098
-49954   39659
-50720   54616
-82282   66849
-27672   34776
-48615   88195
-16323   23803
-34687   30556
-84144   25955
-43893   16399
-58000   17912
-63630   93219
-42225   59248
-10697   50098
-84790   49298
-84555   50098
-11332   67228
-55152   91029
-17760   35192
-74448   78826
-72412   99596
-81795   65194
-28000   23577
-58978   75949
-97634   91029
-12089   74439
-21668   11140
-98314   59248
-27619   92514
-34387   40285
-64406   70596
-54811   36254
-28351   92362
-79006   46580
-49237   10460
-30856   46374
-59999   48734
-76251   98298
-14006   91029
-88588   33976
-97866   91029
-11813   10790
-91016   83025
-43424   32540
-83490   72412
-78507   89604
-91517   91029
-55040   21407
-21483   83837
-47039   75811
-97168   38491
-96466   28383
-66156   85652
-50285   91029
-14057   19440
-73017   79572
-33025   15856
-97174   15804
-65673   59248
-19216   34215
-44883   87903
-30254   40285
-31552   29668
-76764   16427
-60507   41588
-18078   39147
-46186   54811
-90898   23803
-23982   40735
-37504   80710
-72585   89108
-17791   84089
-79779   66916
-25517   57516
-54064   54811
-47343   59248
-11730   16399
-14957   23803
-30186   14989
-66079   89338
-82720   66916
-59760   44962
-23159   77329
-21390   50098
-12330   90747
-38607   53663
-96534   97111
-65278   58227
-48760   91626
-34518   47541
-79376   48439
-40307   36080
-59634   68532
-16764   51086
-20484   10950
-40175   72383
-12457   70481
-56023   34025
-63916   58517
-46289   70209
-91143   44935
-65424   70887
-39578   52243
-79985   22203
-72984   35192
-41823   76917
-98393   10103
-48951   40735
-51888   89069
-85621   44767
-49048   27513
-48878   87903
-91067   73884
-67152   73125
-80589   59248
-80824   52481
-65118   59248
-66648   83025
-17766   13909
-83672   35572
-81351   42040
-72780   87903
-87114   75949
-74871   29739
-62623   73816
-68716   49219
-72795   72092
-97700   40307
-80913   80983
-21100   37233
-49723   10790
-30881   80895
-42287   28982
-90849   50862
-13053   14799
-90689   50862
-91029   19117
-61953   43248
-67212   50164
-70587   31660
-50801   40285
-44701   68049
-67526   72412
-64537   98405
-10820   23823
-94953   57422
-93517   72412
-84240   45050
-72049   80983
-17021   10790
-41393   72559
-88520   57245
-63317   28383
-28723   74185
-64942   27513
-10994   34190
-57068   93681
-15289   53584
-20900   35192
-32744   41588
-18435   72823
-95710   35192
-14710   69585
-31598   87903
-63543   10790
-29870   91029
-20129   16427
-21868   49298
-76460   73884
-65538   72412
-84172   51085
-77952   35689
-26417   78889
-93014   89108
-66327   13137
-40867   10790
-65286   76246
-93712   91171
-73589   30084
-91733   49842
-55558   37212
-11506   83025
-59048   71853
-62575   73247
-96799   92730
-46068   93958
-32722   12454
-42557   26234
-83134   54811
-52665   73128
-38085   69964
-33365   22988
-74033   87903
-49743   38491
-47311   92414
-41588   38093
-78063   48550
-83201   80983
-57980   35192
-58451   71130
-81627   56209`
-// input = `3   4
-// 	4   3
-// 	2   5
-// 	1   3
-// 	3   9
-// 	3   3`
-	CompareLocationIds(input)
-	fmt.Println("Done")
+	res := report_checker.GetNumSafeReports(`44 47 50 51 53 54 53
+70 73 75 77 80 81 84 84
+1 3 4 7 10 13 16 20
+47 49 52 53 55 57 60 65
+69 70 71 70 71
+22 23 20 21 24 27 24
+90 92 93 94 95 93 94 94
+16 18 15 16 20
+47 48 51 50 55
+27 28 31 31 32 34
+35 36 36 38 39 41 38
+32 33 33 36 38 39 39
+11 14 14 17 20 22 23 27
+65 68 71 71 72 79
+68 69 71 74 76 79 83 84
+51 52 56 58 59 61 64 61
+89 91 94 98 98
+45 48 51 55 59
+82 85 89 90 91 93 99
+41 42 44 49 51
+74 76 77 82 81
+33 36 37 43 45 48 48
+10 12 15 18 23 27
+63 66 72 75 76 81
+71 68 71 73 74 75
+78 75 76 77 76
+8 6 9 11 11
+39 37 38 41 43 47
+87 86 87 90 96
+32 31 32 30 33 35
+17 16 17 18 16 17 14
+63 60 62 61 62 65 65
+77 76 77 78 75 78 80 84
+9 7 10 11 8 15
+48 46 47 49 52 52 54
+17 16 17 19 20 23 23 22
+12 9 10 12 12 13 13
+20 18 20 20 24
+69 66 66 67 72
+9 7 10 12 16 17 18
+19 17 18 19 21 25 28 27
+55 54 57 58 62 62
+55 54 58 61 65
+51 49 53 55 58 60 65
+59 58 60 65 68
+82 81 88 90 93 96 93
+17 14 17 18 23 23
+53 50 52 54 61 65
+26 24 27 28 33 34 36 43
+18 18 19 20 21 22
+63 63 65 67 68 71 70
+3 3 6 7 10 10
+82 82 83 86 89 93
+37 37 40 43 50
+53 53 54 51 52 54 56
+86 86 83 84 83
+37 37 40 42 41 41
+9 9 12 13 10 12 13 17
+57 57 59 61 60 63 65 71
+65 65 67 67 70 72
+23 23 24 24 23
+94 94 96 98 98 99 99
+49 49 50 53 53 55 57 61
+54 54 54 57 64
+70 70 74 77 78
+46 46 47 51 48
+9 9 10 14 14
+78 78 80 81 84 88 92
+49 49 50 53 55 56 60 67
+70 70 77 79 82 85 88
+7 7 14 15 13
+46 46 52 55 58 59 62 62
+16 16 21 22 26
+28 28 29 31 36 43
+2 6 9 10 11 12
+56 60 62 64 63
+60 64 65 68 71 73 74 74
+27 31 33 34 37 38 41 45
+6 10 11 14 15 18 21 26
+14 18 19 22 19 22 24
+17 21 23 26 27 26 28 27
+85 89 92 93 91 94 94
+20 24 27 24 28
+47 51 52 51 52 53 56 62
+18 22 24 24 25 28
+28 32 35 38 38 40 39
+43 47 47 49 50 52 52
+45 49 52 52 56
+33 37 38 38 45
+66 70 73 75 79 81 82 83
+12 16 20 22 24 25 26 25
+54 58 59 61 65 68 71 71
+14 18 20 24 28
+30 34 36 40 43 45 50
+22 26 27 29 31 32 38 40
+59 63 66 67 70 73 79 76
+40 44 47 49 50 55 58 58
+46 50 51 53 58 62
+34 38 40 43 48 55
+53 59 61 64 67 70
+47 52 53 55 56 54
+31 37 39 41 43 45 45
+21 27 29 31 33 37
+18 24 26 28 30 33 36 41
+29 36 37 38 36 38
+2 9 7 9 12 14 15 12
+72 77 76 77 80 82 85 85
+42 48 50 48 50 53 57
+75 81 83 81 84 87 90 97
+17 22 24 27 27 30 33 34
+42 48 48 51 54 52
+82 87 89 89 91 92 93 93
+36 42 44 45 48 50 50 54
+51 58 60 62 62 63 68
+15 20 23 24 26 30 33
+18 25 27 31 30
+68 73 77 78 81 81
+6 12 13 17 21
+8 15 19 21 23 26 31
+8 15 17 22 24 27
+19 25 32 35 37 38 40 39
+55 60 61 63 70 71 71
+43 50 57 60 61 63 67
+12 17 19 25 26 28 34
+96 94 93 92 91 90 87 90
+75 74 71 70 69 66 63 63
+72 69 68 67 66 62
+77 74 72 69 67 66 65 58
+43 42 40 37 40 38 37 36
+99 96 97 96 95 93 92 93
+89 86 85 86 83 81 81
+48 46 43 42 41 42 40 36
+69 66 64 61 64 62 61 55
+98 95 93 90 90 87 84 81
+30 27 24 24 23 25
+33 30 28 28 28
+58 57 54 54 52 48
+71 69 68 68 65 62 57
+36 33 32 31 27 24
+94 91 87 86 84 81 78 79
+35 34 31 28 27 24 20 20
+77 76 75 71 69 65
+53 52 48 45 44 41 39 33
+99 98 96 95 88 85 83 80
+79 76 69 66 64 61 62
+58 57 55 49 48 48
+40 39 33 32 30 27 23
+93 90 89 88 87 81 74
+37 39 36 35 32 29 28
+96 99 96 94 96
+47 48 47 45 42 39 39
+33 35 34 32 28
+17 19 16 14 7
+82 83 81 78 79 78 75 72
+25 27 26 25 28 26 29
+23 26 29 28 25 25
+85 88 91 89 88 86 85 81
+81 83 82 79 82 79 77 72
+44 47 47 45 43
+80 83 82 82 85
+38 40 39 38 37 37 35 35
+86 88 85 83 83 82 78
+27 29 28 28 22
+49 51 49 45 42
+37 39 37 33 30 27 30
+63 65 62 58 58
+43 45 42 40 39 36 32 28
+33 34 32 29 25 23 17
+33 35 33 31 28 22 19
+39 41 38 31 30 28 29
+15 16 15 8 7 6 6
+24 26 25 20 16
+92 93 90 88 82 76
+54 54 51 49 46 44 42 40
+37 37 36 35 37
+44 44 43 42 41 41
+32 32 31 30 27 24 20
+34 34 32 29 23
+94 94 97 94 92 90
+43 43 40 42 40 37 40
+36 36 38 36 35 32 32
+66 66 63 66 65 63 59
+6 6 3 6 1
+48 48 45 44 44 42 41 40
+43 43 42 42 39 42
+52 52 49 47 44 44 44
+31 31 28 28 26 22
+47 47 45 45 38
+79 79 75 72 71 69
+43 43 42 39 37 34 30 33
+21 21 17 14 14
+69 69 66 62 60 57 56 52
+42 42 38 35 32 25
+94 94 91 86 84
+25 25 23 20 14 11 8 11
+27 27 21 20 18 16 16
+80 80 79 73 72 71 67
+38 38 35 32 25 19
+48 44 43 40 38 37 36 34
+17 13 11 9 6 5 8
+59 55 52 49 47 46 46
+92 88 87 84 82 79 76 72
+74 70 69 66 63 60 57 51
+90 86 85 88 87
+82 78 75 76 75 76
+72 68 71 69 66 65 65
+79 75 74 72 70 68 70 66
+55 51 52 49 42
+34 30 30 29 28 25 24
+72 68 67 64 64 67
+77 73 72 72 70 70
+85 81 80 77 77 76 72
+45 41 39 38 35 35 33 27
+31 27 25 23 20 16 15
+69 65 61 59 58 60
+54 50 49 45 43 43
+64 60 59 57 53 51 49 45
+31 27 26 22 17
+78 74 67 64 62 61 60
+43 39 37 32 35
+81 77 71 70 67 64 62 62
+71 67 65 64 63 58 56 52
+52 48 47 45 42 39 32 27
+97 90 88 86 84 81 78 77
+15 10 9 7 6 9
+43 37 35 33 32 32
+89 84 81 78 76 75 71
+35 28 25 22 19 16 14 7
+66 59 56 57 55 52 51 49
+79 74 72 73 76
+83 78 80 77 74 72 72
+62 55 53 55 51
+95 89 87 89 86 79
+31 24 23 22 20 18 18 16
+94 89 87 87 85 82 79 80
+35 29 29 28 28
+45 39 39 36 35 31
+30 23 23 21 19 16 11
+73 68 64 63 62 59 58 55
+57 50 46 45 42 45
+28 22 21 19 15 12 10 10
+61 56 53 49 45
+57 52 50 47 46 44 40 35
+64 57 54 48 47 44 43
+27 21 18 11 10 9 10
+51 45 42 39 36 29 26 26
+95 88 85 79 75
+41 34 33 27 22
+79 80 83 84 86 92 90
+46 39 36 33 29 25
+54 50 49 46 45 44 47
+94 89 88 82 82
+16 19 22 25 27 31 32 34
+92 89 90 96 96
+83 83 82 79 76 69 68
+80 77 79 80 80 87
+41 44 45 48 49 56 60
+28 28 27 23 19
+87 88 90 93 94 98 99 97
+6 10 7 10 8
+13 13 18 20 24
+57 57 57 58 62
+75 77 79 82 79 80 83
+62 59 63 65 68 69 72
+89 85 84 81 79 77 74 72
+49 50 49 46 42 40 38 34
+31 28 30 36 38
+38 34 34 31 29 23
+95 96 99 97 96 95 94 96
+98 94 91 88 87 86 85 85
+69 69 66 64 62 61 54
+47 47 49 50 51 51 51
+31 27 25 28 27 26 22
+73 76 79 81 85
+12 15 15 13 11 4
+57 64 65 67 72 75 77
+31 29 26 25 26
+66 73 79 81 79
+59 62 62 59 56 56
+78 74 73 73 70 67 64
+23 23 23 20 19 17 11
+68 68 66 64 62 65 63 64
+63 59 62 60 57 54 54
+31 37 35 37 38 38
+44 45 42 41 39 41
+22 22 25 26 28
+49 51 44 43 41 38 37 40
+19 18 21 21 25
+89 83 79 77 74 76
+98 97 96 94 91 88 83
+89 88 85 82 79 76 76 71
+71 68 67 65 61 60 58
+32 36 37 44 45 47 49 55
+14 12 10 12 12
+19 17 18 20 21 21 19
+15 12 17 18 21 23 30
+86 87 86 81 80
+65 65 64 62 64 62 60 56
+4 6 5 8 8
+70 67 63 60 60
+41 42 42 45 49
+45 47 54 55 58 58
+81 85 87 88 89 93
+83 84 83 80 79 78 71 65
+63 60 59 61 57
+57 57 54 53 51 51 48
+4 3 5 6 7 7
+70 70 68 69 68
+57 51 48 43 41
+74 78 81 83 86 85
+56 60 61 62 65 68
+10 11 11 14 15 15
+86 90 91 92 93 94 99 98
+43 47 50 51 54 61
+36 29 27 26 23 22 19 13
+56 57 54 51 51 49 46 44
+46 40 37 34 34 28
+56 61 64 65 64 65 66 68
+13 11 8 5 1
+79 79 77 77 76 73 72 72
+37 35 34 31 31 31
+61 57 53 51 48 47
+26 22 21 19 17 12
+37 33 31 28 25 23 19
+25 31 34 37 38 37 38 42
+16 23 26 27 30 33 37 37
+65 60 57 51 48 46 42
+3 2 5 2 6
+56 56 57 59 61 64 70
+78 78 76 73 70 69 63 63
+88 89 86 82 82
+29 31 29 29 25
+70 66 64 62 56 55 53
+35 34 35 36 38 36
+2 6 7 8 11 14 16 16
+50 48 49 51 52 57 58 62
+49 49 52 56 58 62
+71 66 63 61 57
+89 91 92 95 95 94
+25 30 33 36 43
+82 84 85 86 87 89 91 97
+42 42 40 39 32 28
+63 67 70 72 76 78 79 81
+66 66 67 69 70 74
+47 40 38 38 37 36 34 34
+14 14 13 14 16 17 17
+68 68 66 63 61 60 57 57
+51 52 56 59 61 68
+40 42 40 39 36 35 34 30
+28 25 18 15 13 9
+81 85 83 84 88
+27 23 19 18 17 15 11
+40 41 42 48 49
+61 61 62 61 58 55 55
+33 34 33 36 29
+29 27 26 20 18 16
+28 23 20 18 15 12 10 8
+5 5 8 9 10 10 12 17
+51 56 56 58 61 67
+17 21 23 24 24 26 29 26
+12 18 20 21 23 25 25
+16 16 17 20 22 23 27 28
+20 18 15 14 14 10
+40 34 33 31 30 33 31 29
+39 38 41 44 46 44 50
+15 15 19 22 23 30
+57 61 58 60 62 69
+72 79 82 85 82
+58 56 54 52 49 47 49 47
+8 10 15 16 21
+76 75 78 82 83 80
+93 95 94 91 84 80
+87 85 86 88 91 94 95 99
+88 88 86 84 83 79
+74 75 78 79 82 82
+58 59 61 65 67 69 69
+57 64 66 69 73
+81 77 72 71 68 62
+73 73 68 67 66 65 63 58
+56 56 53 52 48 50
+56 55 53 50 45 43 42 42
+26 24 20 19 17 12
+62 62 63 64 62 64 62
+47 42 38 37 34 32 26
+55 59 62 63 61 63 64
+81 78 77 73 70 71
+46 46 48 49 46 49 55
+73 70 70 69 72
+62 62 63 62 61 56
+74 78 81 78 81 81
+90 86 84 83 82 78 78
+2 9 12 14 14 15 13
+95 91 88 88 89
+45 45 43 41 39 33 31 33
+43 42 43 45 42 44 45 45
+20 24 27 33 37
+85 81 80 78 78 74
+7 10 8 10 9
+39 41 42 40 37 37
+76 73 72 66 68
+34 40 41 44 49 53
+92 90 93 97 97
+61 68 70 72 69 72 74 72
+37 33 31 30 29 24 20
+24 20 16 14 11 10 9 4
+72 76 78 84 85 86 86
+21 24 23 20 17 16 18 14
+26 28 25 23 20 20
+4 4 7 8 12 14 12
+92 91 88 86 85 83 80
+95 93 91 90 89
+83 84 86 89 92 95
+61 62 65 67 70
+91 88 85 84 81
+6 7 9 10 13
+81 82 85 88 91 93 95
+74 73 70 67 66 64
+55 57 59 62 65
+12 10 9 6 4 2
+48 46 44 41 40 39
+98 95 94 92 89
+38 39 40 41 42 44 45
+19 22 23 25 28 30 32 34
+56 59 61 63 65 66 67
+21 23 24 26 27 30
+9 11 14 15 18
+3 6 8 10 11
+24 23 20 18 17 15 13
+17 15 14 11 10 7 4 2
+49 48 45 42 40 37 34 33
+49 50 51 53 55
+18 16 13 11 8 7 4
+75 73 70 68 67 64 61 58
+17 14 12 10 9 7
+8 10 12 13 15 18 20 21
+77 76 75 73 71 70 69
+67 66 63 62 59 58
+17 18 20 22 24
+67 65 63 60 59
+2 4 7 9 10 11 14
+39 37 35 32 30
+31 33 35 36 37 39
+83 82 79 78 75 72 71 69
+46 45 42 40 39 38 36 33
+36 38 39 40 41
+40 42 45 47 49
+46 45 43 42 40 38 36 34
+37 35 32 31 30 28
+34 33 32 30 28 26 23
+66 69 71 72 73 75 78
+63 60 57 55 54 52 51
+59 61 63 64 66
+20 17 16 14 11 8
+99 97 94 91 89 87 84 82
+92 90 87 86 84 81 79 76
+53 51 48 47 44 41 39 36
+88 90 91 94 96 97
+14 11 9 8 5
+4 5 6 7 9 12 15
+89 87 85 83 82 79 77 76
+2 5 8 9 10 11 14 17
+10 12 14 16 18 21
+51 54 57 60 62 64 66 68
+46 48 49 50 53
+5 7 8 11 14 16 17 20
+73 71 70 69 67 64 61 58
+94 91 89 86 84 83 80
+87 90 91 92 95 96 97
+25 23 20 17 15 13
+70 71 73 76 79 81 83
+72 70 69 66 65 62 60
+97 95 92 91 89 87
+59 58 57 56 54
+61 60 57 55 52 51
+93 90 87 84 83
+8 11 14 15 18 20
+25 26 29 32 35
+14 15 16 19 20 22 23 24
+77 75 73 72 71
+79 82 83 86 87 89 91 94
+40 39 36 34 31 28 26
+85 87 90 91 94 95
+53 50 49 46 45 43 40 37
+72 74 77 80 81 84 86
+68 65 63 61 58 56 54
+17 16 14 13 10
+82 81 79 76 75 72 71 68
+2 3 6 8 11 12 13
+56 53 50 48 47
+63 65 67 69 71 74 77
+38 40 41 44 47
+89 86 84 81 80 77 76
+65 62 61 59 58
+53 55 56 58 61 63 65
+69 71 74 75 77 79 82
+78 76 73 72 71 69 68 67
+71 74 77 78 81 82 84 87
+14 12 9 8 5 3
+84 81 79 76 74 73 71 70
+58 57 55 53 51 49 47
+59 62 64 65 67 69
+17 14 12 10 8 5 4
+46 43 41 39 36 33 32
+66 65 62 60 57
+14 13 11 10 9 7
+3 5 6 9 12 13 16
+38 39 41 42 43 45 47 48
+19 22 23 25 27 30
+41 38 36 35 33 32 29 26
+34 36 37 39 42
+40 37 34 33 32
+26 23 21 20 18 16
+75 76 77 79 82
+75 77 78 79 80 83
+67 70 72 73 74 77 80 82
+50 48 45 42 39
+69 68 67 65 64 63 61
+15 14 12 10 7
+42 40 37 36 33
+27 24 22 21 19 17 14
+57 59 62 64 67 70
+14 17 20 22 24 25 26
+32 29 27 24 23 21 18 15
+65 67 70 71 74
+1 4 5 8 11
+79 80 81 84 87 90 92 94
+11 10 9 7 5 3 2
+41 40 37 36 35 32 29 28
+61 63 66 68 69 72 74
+42 41 40 39 38 36 33 30
+36 35 33 32 31 30 28
+12 13 15 18 21 23
+62 61 58 55 53 52
+78 76 73 71 68 66
+22 24 26 28 31 33
+31 29 26 24 21 19
+7 10 12 13 15 17
+8 9 11 13 15 16
+62 61 60 58 56
+11 9 6 4 1
+72 74 76 77 78 81 83
+53 55 56 58 60 63 65 67
+42 44 46 48 49 52
+22 21 19 18 15 13 11 9
+42 45 46 48 51 52
+49 48 47 46 45 43
+11 9 7 4 3
+86 85 84 81 79 77 74
+22 24 25 28 29 32 35 36
+46 47 49 51 52 53
+20 21 24 25 26 28
+48 50 51 54 55 58
+42 41 39 38 37
+60 59 56 53 50 47 46 44
+25 22 20 19 17 16 13
+14 13 11 10 9 7 5 4
+79 76 75 72 71 70 68
+67 64 62 59 57 55 53 50
+28 25 24 23 21 19
+4 7 10 11 12 13 16
+27 24 22 20 19
+37 36 33 32 30 27
+3 5 8 11 14 15
+22 23 25 26 29 32 35 38
+63 65 66 68 69 71
+86 87 88 89 90 93 94 97
+65 63 60 57 56
+48 46 44 42 39
+98 96 94 91 90 87 86 85
+6 9 10 11 13
+88 91 92 94 96 98
+74 77 78 79 81 84
+96 95 93 91 90 87
+33 34 35 37 39
+12 9 7 6 4
+19 21 22 23 26 28
+13 16 17 19 20 21 23
+56 58 59 61 63 66 68 69
+72 70 69 67 64 63 62 59
+63 66 69 71 72
+41 38 37 36 34 31
+76 79 82 83 84 87 89 91
+5 6 8 10 12 15 16
+72 74 77 80 83 84 87 90
+88 85 83 80 78 75 74 73
+46 44 41 39 37 36 33 30
+69 71 74 76 79 82
+89 90 93 95 98
+58 55 54 51 49 48 45
+44 41 38 37 36 35 34
+34 36 37 40 42
+66 68 70 73 75 78
+59 61 62 63 66 67 69 72
+22 21 18 16 14 13 11 9
+15 14 13 12 9
+41 39 38 36 33 30 29 26
+14 15 18 20 22
+32 31 28 26 23 21
+22 24 25 26 28 29 32
+73 76 79 81 84 86 89 90
+13 15 18 20 23 25 27 28
+5 6 8 10 12 13
+17 18 21 24 27
+91 89 87 85 83 81 80
+30 29 26 23 21 19
+34 37 40 43 44 45 48
+38 39 41 42 44 46 49 50
+29 32 33 34 37 39 41
+75 77 80 81 84 87 90 93
+74 73 70 67 66
+10 11 14 16 18 19 21
+30 29 27 25 24 21
+65 68 71 72 73 76 79
+78 75 73 72 70 67 64
+99 98 96 93 91
+71 69 68 67 66 64 62 61
+18 20 22 25 26 27 29
+64 67 69 71 72 75 78
+88 87 84 81 78 76 73
+25 23 22 21 18
+89 86 84 83 82 80 78
+79 76 75 72 70 67 66 63
+67 69 71 74 76 77
+66 63 60 59 56 55
+73 72 69 66 63 61 60
+20 23 24 27 29 30
+96 95 93 92 91
+65 63 62 61 58
+75 76 77 80 83
+31 28 25 22 20 18 15 14
+20 23 26 29 31 34 36
+89 90 91 92 95 96 97
+74 72 69 66 64 63 61
+39 41 44 46 49
+38 36 33 30 27 24 23 20
+78 79 81 82 84 87
+3 4 7 10 12 14
+12 9 8 6 4 3
+95 93 92 91 90 88 87
+44 45 46 47 48
+80 81 82 85 88
+47 44 41 38 37
+55 57 59 61 62 65 66
+52 54 56 57 60
+83 82 80 78 75
+72 70 67 66 63 61 60 58
+43 44 46 47 50 53 54
+15 14 11 9 8 7
+85 83 81 80 78
+19 17 14 12 10 8 5 4
+22 23 25 27 29 31 33
+43 45 47 49 52 54 57 58
+57 56 54 51 50 47
+89 88 86 84 81 80 77
+54 55 57 58 59 61 64
+32 29 28 26 23 21 18
+38 36 35 34 33
+36 38 40 42 44 47
+22 21 20 19 17 16 14 11
+52 54 55 57 60 63 64
+13 15 18 19 21 23 25
+19 21 24 27 28 31
+14 17 20 22 25
+63 61 58 57 54 52
+22 20 18 15 14 13 10 7
+34 36 37 40 41
+15 14 13 11 8 6 5 2
+36 39 40 42 44 45 47
+35 37 40 42 43 44 45
+19 18 16 14 11 9
+38 41 42 44 45 46
+84 85 88 90 93 95 97
+53 52 51 48 45
+37 35 33 32 31 30 27 25
+17 19 20 22 25 28
+9 10 12 14 15
+25 26 29 31 34 36 37 40
+19 20 23 24 26
+48 51 53 56 57 59 60
+74 71 68 66 63 62 59 57
+17 15 12 10 8 6 4
+36 33 30 27 25 22 21 20
+71 72 75 78 80
+67 69 72 73 74 75 77
+67 70 71 74 76
+89 92 94 95 97
+61 59 56 54 52 51 48
+15 17 20 22 25
+26 29 32 34 35 37 40
+22 24 25 28 29 32
+26 25 22 19 16 15 12
+13 16 17 20 22 23
+85 82 79 77 76 75 72
+9 11 13 16 18 20 23
+56 55 54 51 48
+5 8 11 14 15 16
+54 51 48 47 46 45
+60 62 65 68 69 70 73
+22 19 17 15 13
+97 95 94 92 90 87 85 83
+22 19 16 13 12 9
+63 66 67 70 73 75
+94 92 91 88 86 84 83 81
+42 43 45 48 50 53 56 58
+42 44 47 50 53
+15 14 13 12 10
+63 60 58 56 54 51 49 48
+54 52 50 47 44 41
+18 21 23 26 28 30 32
+38 37 35 34 31 28 26 23
+81 79 76 75 73 72 71 68
+46 44 41 38 37
+91 90 87 85 83
+12 14 15 18 20
+54 56 57 60 63 65
+57 56 55 52 51 50
+40 37 35 32 30 28
+61 63 64 65 68
+2 3 4 5 6 9 12
+49 50 51 52 54
+69 71 74 75 76 77
+74 75 77 79 82 85
+17 15 12 11 9
+32 31 28 25 22 21
+27 28 31 34 37
+11 13 16 17 20 22 23 26
+80 79 77 75 74 71
+15 12 11 10 7 6
+87 84 83 81 79
+34 37 38 40 43 45 47
+45 48 49 52 55 57
+54 51 50 49 46 44 43
+37 40 41 44 47 49 50
+16 13 12 10 8 6 3
+84 86 87 90 93 96 99
+59 57 54 53 52 49 48
+60 57 55 54 51 50 48
+29 30 31 33 34 36
+66 67 70 71 74 76 79 81
+84 86 88 91 94 96
+47 44 43 40 39
+80 79 77 75 73 72 71 68
+17 15 13 12 9
+81 79 76 74 71 70 67
+22 20 19 17 15
+56 58 60 62 63 66 67
+26 28 29 31 32 33 34
+48 45 43 42 41 38 37
+41 44 47 50 53 56
+71 70 68 66 63
+50 49 47 44 43 41 39
+16 13 10 8 7 6 5 3
+40 37 34 31 28 26 25 22
+79 82 84 86 87 90 92 95
+90 87 86 85 82 79 78 75
+48 50 51 54 56
+62 59 56 53 52
+52 55 57 60 61
+39 42 45 48 50 52
+68 67 65 64 63 60
+8 10 13 14 17 20 21 23
+23 24 25 27 28 30 33 34
+80 79 77 74 72 70 67 65
+3 4 7 9 12 13 15 16
+65 67 70 72 75
+64 63 60 57 55 52
+82 79 78 76 73 70 67 64
+91 89 86 83 80 79 78 76
+18 15 13 11 8 6 5 3
+71 69 68 67 65 62 59
+58 60 62 64 66 69
+53 52 49 46 44 41 40 37
+52 53 54 57 58 61 64 67
+5 7 9 12 14 16 19
+62 64 65 68 71 73 74 75
+32 34 36 38 40
+39 40 42 45 48 49 52 55
+10 12 15 18 20 21 22
+44 41 40 38 35 32 29
+74 75 76 77 79
+14 13 11 9 8 7
+16 18 19 20 21 24
+19 16 13 10 7 6
+54 57 58 59 62 63 64
+12 15 16 19 21 23 26 28
+61 58 57 55 54
+24 21 19 18 16
+54 51 50 49 46
+33 36 39 41 44
+32 33 36 38 41 44 47
+44 47 49 51 52
+20 22 25 28 29 31 34
+46 43 40 39 36 34 33 32
+4 7 9 12 15
+18 16 14 12 9 8 6
+17 14 11 8 5
+51 50 49 48 45
+51 50 48 47 45 44 43
+48 46 43 42 41
+70 71 74 76 77 78
+42 41 38 37 36 34
+43 42 39 37 35 32 30 27
+73 70 68 67 65 64 61 60
+85 86 89 91 92 94
+53 56 58 59 60 61 63 66
+83 84 86 88 91 92
+91 90 89 86 85 84 83
+4 6 9 12 14 15 18
+89 88 85 82 79 77
+31 29 26 25 24
+28 30 33 35 36 37 39 40
+66 65 64 62 59
+25 23 21 19 18 17
+93 92 91 89 88 86 84 81
+19 20 22 24 27 28 31 34
+24 25 27 28 30
+7 10 11 14 17 18 20
+26 27 30 32 35
+72 69 66 65 62 59 57
+96 94 93 92 90
+11 13 16 19 20 23 24 26
+50 49 47 44 43 42 40 39
+31 29 27 24 21 20 19 18
+53 55 58 61 63 66 68
+57 60 63 65 67
+73 74 75 77 78 80
+21 20 17 14 11 9 7
+56 58 61 64 65 66 67
+77 75 72 69 67 65 64
+53 55 57 58 61
+30 27 25 23 20 17
+45 44 42 40 37 36 33
+34 31 28 26 23 21 20 17
+45 46 48 50 52
+51 52 53 54 55 58
+39 36 35 33 31
+56 59 61 64 66 69 71 72
+94 92 89 88 85 83
+4 7 10 12 15 17 18 21
+74 76 79 82 83 84
+71 69 66 63 61 60 57
+82 85 86 88 90 92 94 96
+69 71 73 74 75
+35 38 40 41 44 46 49
+78 80 81 82 84 85 87 88
+29 32 34 35 38
+26 24 21 19 17 16 13 11
+39 41 43 45 48
+58 60 61 62 63 64 67 68
+61 64 66 67 70 73
+85 84 83 81 80
+66 63 62 61 59 57 55
+38 41 42 43 46 49
+47 44 41 40 38 35 32 30
+41 39 38 37 36
+85 88 91 93 95
+7 10 11 13 16 19 22
+51 50 48 47 44 43 40
+47 46 43 41 39 38 36
+93 92 91 89 87 85 83 82
+83 80 79 77 74 73 70
+46 44 41 39 37 36 33 32
+29 32 33 35 38
+21 18 16 15 12 9 8
+25 27 29 31 33
+51 53 56 58 59 62 64
+57 58 61 63 65 67
+49 48 47 45 44 41
+42 44 47 48 49
+69 68 66 63 61 60
+27 24 22 21 20
+81 78 77 74 71 70 67 64
+41 44 46 49 50
+13 11 9 6 5 3
+53 52 50 48 47 44 43 42
+48 45 42 41 38 36 34
+62 59 58 57 56 55
+51 50 47 44 42 39 36
+3 4 7 10 13 16
+16 19 20 22 25
+93 91 90 87 85
+87 86 83 80 77
+84 82 80 79 78 76 75 73
+25 27 28 29 31 32 35 38
+82 81 78 75 74 72 70
+84 85 86 89 90
+80 81 82 85 87 89
+1 2 5 8 10
+74 76 78 81 82 83 84 86
+52 54 55 56 57 58
+17 20 22 24 26 28 30 31
+73 72 69 68 65 62
+65 62 60 59 56 55
+54 52 50 48 46
+44 43 42 40 39
+67 68 70 73 74 77 79 81
+91 90 88 86 83 82 81 80
+36 38 39 40 43 45 47 49
+29 28 25 24 23 20
+39 40 43 46 47 49
+83 81 79 76 74 73
+45 43 42 41 40 37
+38 41 42 44 45 47 48
+34 35 38 41 42 43 44 45
+62 59 56 55 52 49 48
+11 13 16 17 20 21
+49 46 45 43 41 40 38
+54 52 51 49 46 44
+96 94 92 89 88 86 84
+41 38 36 33 31 28 25
+21 22 25 26 29 30 31
+27 28 29 32 35 37 39 41
+55 58 60 63 66 68 69 71
+18 15 14 12 11 10
+77 75 74 71 70
+23 25 28 30 31 32
+14 15 17 20 23 25 28
+46 48 50 51 53 55
+72 71 70 69 68
+60 57 56 54 53 51
+93 92 89 86 83
+66 63 62 61 60 59 58
+28 31 34 37 38
+78 79 82 84 85 88 90 92
+60 62 65 67 70 71
+57 60 62 65 67 70 72
+5 8 11 14 15
+63 65 67 69 71 74 75 77
+79 77 74 72 70
+55 58 60 62 65
+28 30 32 34 37
+19 21 24 25 27
+67 65 62 59 58 56
+94 93 91 89 86 83 81 79
+42 41 40 39 37
+16 19 21 23 26
+67 64 62 59 56
+66 64 61 59 56 54 53 51
+62 63 64 67 68
+87 84 81 79 76 74 71 68
+7 8 11 14 15
+37 39 42 43 45
+21 24 26 28 31 33 36 39
+48 50 53 56 59 61 64 65
+63 64 65 66 69 70
+58 60 63 64 65
+5 6 7 10 11 14 17 19
+51 48 47 46 44
+25 28 30 32 35 37 39
+32 31 28 26 25
+91 89 88 85 83
+91 90 87 85 84 83
+39 38 35 34 31 29
+50 51 53 54 56
+59 60 63 65 66
+25 27 28 30 31
+57 54 53 51 50
+50 53 56 57 60 62 65 68
+63 61 60 58 55 52 50
+60 62 64 65 66 68 69
+43 45 48 49 51 52 55
+65 66 68 71 74 77
+24 25 26 28 29 30 32 35
+89 90 92 95 97
+83 84 86 88 89 92 94
+31 32 34 35 37 40 42 43
+73 76 78 79 81
+63 64 67 68 70 73 75 78
+86 84 81 78 77 75
+43 42 40 38 35
+62 64 65 68 71
+68 70 72 75 78 80 83
+77 80 82 85 88 90 91 94
+11 9 8 7 6
+79 80 83 84 87
+44 45 46 47 50 52 55 56
+32 34 35 37 38 40 43
+57 54 51 49 46 45 44 42
+41 39 38 37 34 31 29 26
+81 82 83 85 88 90 91 93
+62 64 66 69 72 73 76
+27 28 30 31 32 33 34 36
+25 27 30 31 33 36
+99 96 93 92 90
+34 33 30 27 25 23 22 21
+27 24 23 20 18 15 13
+91 90 88 87 84
+62 59 56 55 52 49 47
+19 17 16 15 14 13
+95 92 90 87 84 82 79 76
+12 11 9 8 6 3
+15 18 20 22 25 26 27 29
+51 49 47 46 43 40
+62 65 67 68 71
+67 68 71 74 77 79 82 84
+47 45 42 39 37 35 32 31
+51 48 47 46 44 42 41 39
+45 46 49 50 51 52
+86 89 90 92 93
+66 67 68 71 72 75`)
+	fmt.Println(res)
 }
