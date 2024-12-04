@@ -23,7 +23,6 @@ func CompareLocationIds(locationIdsStr string) {
 
 // / Convers string input, and returns one list for the left column, and one for the right column
 func convertInputToLists(locationIdsStr string) (left []int, right []int) {
-
 	idsByLines := strings.Split(locationIdsStr, "\n")
 
 	list1 := []int{}

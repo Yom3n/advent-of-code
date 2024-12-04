@@ -1,4 +1,4 @@
-package main
+package report_checker 
 
 import (
 	"fmt"
