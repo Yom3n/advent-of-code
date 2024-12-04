@@ -50,6 +50,7 @@ func isAscReportSafe(r string) bool {
 }
 
 func _validateReport(r string, validCondition func(diff int) bool) bool {
+	canSkipErrror := true
 	digitStr := strings.Fields(r)
 	lastDigit := strToInt(digitStr[0])
 	for i := 1; i < len(digitStr); i++ {
@@ -59,6 +60,10 @@ func _validateReport(r string, validCondition func(diff int) bool) bool {
 			lastDigit = curr
 			continue
 		} else {
+			if canSkipErrror {
+				canSkipErrror = false
+				continue
+			}
 			return false
 		}
 	}

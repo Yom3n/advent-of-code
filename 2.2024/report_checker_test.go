@@ -10,7 +10,7 @@ func TestSecond2024(t *testing.T) {
 8 6 4 4 1
 1 3 6 7 9`
 	actual := GetNumSafeReports(input)
-	expected := 2
+	expected := 4
 	if actual != expected {
 		t.Errorf("Should be: %v, Got: %v", expected, actual)
 	}
