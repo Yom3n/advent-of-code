@@ -6,6 +6,7 @@ import (
 	"strings"
 )
 
+// TODO Coś jeszcze jest nie tak. Dodac więcej przypadków testowych. Może ==?
 func GetNumSafeReports(reports string) int {
 	reportsPerLine := strings.Split(reports, "\n")
 	numSafe := 0
