@@ -6,6 +6,9 @@ import (
 	"strings"
 )
 
+const MaxLevelDiff = 3
+const AcceptableErrorsAmount = 1
+
 func GetNumSafeReports(reports string) int {
 	reportsPerLine := strings.Split(reports, "\n")
 	numSafe := 0
@@ -20,50 +23,34 @@ func GetNumSafeReports(reports string) int {
 	return numSafe
 }
 
-const maxSaftyChange = 3
-
 // / Check single report
 func IsReportSafe(report string) bool {
-	diff := getFirstItemsDiff(report)
-	if diff < 0 {
-		return isDscReportSafe(report)
+	if isDscReportSafe(report) {
+		return true
 	}
-	if diff > 0 {
-		return isAscReportSafe(report)
-	}
-	return false
-}
-
-// Checks first 2 or 3 items and based on them count difference.
-// 3rd item is needed when first two are equal
-func getFirstItemsDiff(report string) int {
-	digits := strings.Fields(report)
-	firstDigit := strToInt(digits[0])
-	secondDigit := strToInt(digits[1])
-	diff := secondDigit - firstDigit
-	if diff == 0 {
-		/// When no difference, we can ommit 1 record, because of ProblemDempener that accepts 1 error
-		secondDigit = strToInt(digits[2])
-		diff = secondDigit - firstDigit
-	}
-	return diff
+	return isAscReportSafe(report)
 }
 
 func isDscReportSafe(r string) bool {
-	return _validateReport(r, func(diff int) bool {
-		fmt.Println(diff)
-		return diff < 0 && -diff <= maxSaftyChange
+	numErrors := _getReportNumErrors(r, func(diff int) bool {
+		return diff < 0 && -diff <= MaxLevelDiff
 	})
+	fmt.Println("Dsc errors")
+	fmt.Println(numErrors)
+	return numErrors <= AcceptableErrorsAmount
 }
 
 func isAscReportSafe(r string) bool {
-	return _validateReport(r, func(diff int) bool {
-		return diff > 0 && diff <= maxSaftyChange
+	numErrors := _getReportNumErrors(r, func(diff int) bool {
+		return diff > 0 && diff <= MaxLevelDiff
 	})
+	fmt.Println("Asc errors")
+	fmt.Println(numErrors)
+	return numErrors <= AcceptableErrorsAmount
 }
 
-func _validateReport(r string, validCondition func(diff int) bool) bool {
-	canSkipErrror := true
+func _getReportNumErrors(r string, validCondition func(diff int) bool) int {
+	errors := 0
 	digitStr := strings.Fields(r)
 	latestDigit := strToInt(digitStr[0])
 	for i := 1; i < len(digitStr); i++ {
@@ -72,23 +59,19 @@ func _validateReport(r string, validCondition func(diff int) bool) bool {
 		if validCondition(diff) {
 			latestDigit = curr
 			continue
-		}
-		if !canSkipErrror {
-			return false
-		}
-		canSkipErrror = false
-		if i == 1 {
-			// Check if perhaps first digit should be ommited
-			// if second and third are correct and first and second are wrong
-			altDiff := strToInt(digitStr[2]) - curr
-			if validCondition(altDiff) {
-				// Skips first digit
-				latestDigit = curr
+		} else {
+			if i == 1 {
+				// Checks if first item should be ommited.
+				// This implementation won't work if [AcceptedErrorsAmount] will be increased
+				altDif := strToInt(digitStr[2]) - curr
+				if validCondition(altDif) {
+					latestDigit = curr
+				}
 			}
+			errors += 1
 		}
-		continue
 	}
-	return true
+	return errors
 }
 
 func strToInt(str string) int {

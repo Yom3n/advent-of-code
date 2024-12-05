@@ -54,3 +54,10 @@ func TestWrongFirstDigit(t *testing.T) {
 		t.Errorf("8 4 3 2 1 is safe report")
 	}
 }
+
+func TestEdgeCase(t *testing.T) {
+	isSafe := IsReportSafe("1 4 3 2 1")
+	if isSafe != true {
+		t.Errorf("1 4 3 2 1 is safe report")
+	}
+}
