@@ -45,6 +45,12 @@ func TestProblemDampener(t *testing.T) {
 func TestZeroDiff(t *testing.T) {
 	isSafe := IsReportSafe("1 1 2 4 5")
 	if isSafe != true {
-		t.Errorf("1 3 2 4 5 is safe report")
+		t.Errorf("1 1 2 4 5 is safe report")
+	}
+}
+func TestWrongFirstDigit(t *testing.T) {
+	isSafe := IsReportSafe("8 4 3 2 1")
+	if isSafe != true {
+		t.Errorf("8 4 3 2 1 is safe report")
 	}
 }

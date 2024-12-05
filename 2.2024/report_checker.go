@@ -24,15 +24,7 @@ const maxSaftyChange = 3
 
 // / Check single report
 func IsReportSafe(report string) bool {
-	digits := strings.Fields(report)
-	firstDigit := strToInt(digits[0])
-	secondDigit := strToInt(digits[1])
-	diff := secondDigit - firstDigit
-	if diff == 0 {
-		/// When no difference, we can ommit 1 record, because of ProblemDempener that accepts 1 error
-		secondDigit = strToInt(digits[2])
-		diff = secondDigit - firstDigit
-	}
+	diff := getFirstItemsDiff(report)
 	if diff < 0 {
 		return isDscReportSafe(report)
 	}
@@ -42,8 +34,24 @@ func IsReportSafe(report string) bool {
 	return false
 }
 
+// Checks first 2 or 3 items and based on them count difference.
+// 3rd item is needed when first two are equal
+func getFirstItemsDiff(report string) int {
+	digits := strings.Fields(report)
+	firstDigit := strToInt(digits[0])
+	secondDigit := strToInt(digits[1])
+	diff := secondDigit - firstDigit
+	if diff == 0 {
+		/// When no difference, we can ommit 1 record, because of ProblemDempener that accepts 1 error
+		secondDigit = strToInt(digits[2])
+		diff = secondDigit - firstDigit
+	}
+	return diff
+}
+
 func isDscReportSafe(r string) bool {
 	return _validateReport(r, func(diff int) bool {
+		fmt.Println(diff)
 		return diff < 0 && -diff <= maxSaftyChange
 	})
 }
@@ -57,16 +65,25 @@ func isAscReportSafe(r string) bool {
 func _validateReport(r string, validCondition func(diff int) bool) bool {
 	canSkipErrror := true
 	digitStr := strings.Fields(r)
-	lastDigit := strToInt(digitStr[0])
+	latestDigit := strToInt(digitStr[0])
 	for i := 1; i < len(digitStr); i++ {
 		curr := strToInt(digitStr[i])
-		diff := curr - lastDigit
+		diff := curr - latestDigit
 		if validCondition(diff) {
-			lastDigit = curr
+			latestDigit = curr
 			continue
 		} else {
 			if canSkipErrror {
 				canSkipErrror = false
+				if i == 1 {
+					// Check if perhaps first digit should be ommited
+					// if second and third are correct and first and second are wrong
+					altDiff := strToInt(digitStr[2]) - curr
+					if validCondition(altDiff) {
+						// Skips first digit
+						latestDigit = curr
+					}
+				}
 				continue
 			}
 			return false
