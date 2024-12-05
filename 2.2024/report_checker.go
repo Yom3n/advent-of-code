@@ -6,7 +6,6 @@ import (
 	"strings"
 )
 
-// TODO Coś jeszcze jest nie tak. Dodac więcej przypadków testowych. Może ==?
 func GetNumSafeReports(reports string) int {
 	reportsPerLine := strings.Split(reports, "\n")
 	numSafe := 0
@@ -29,6 +28,11 @@ func IsReportSafe(report string) bool {
 	firstDigit := strToInt(digits[0])
 	secondDigit := strToInt(digits[1])
 	diff := secondDigit - firstDigit
+	if diff == 0 {
+		/// When no difference, we can ommit 1 record, because of ProblemDempener that accepts 1 error
+		secondDigit = strToInt(digits[2])
+		diff = secondDigit - firstDigit
+	}
 	if diff < 0 {
 		return isDscReportSafe(report)
 	}
