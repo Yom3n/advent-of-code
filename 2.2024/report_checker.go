@@ -72,22 +72,21 @@ func _validateReport(r string, validCondition func(diff int) bool) bool {
 		if validCondition(diff) {
 			latestDigit = curr
 			continue
-		} else {
-			if canSkipErrror {
-				canSkipErrror = false
-				if i == 1 {
-					// Check if perhaps first digit should be ommited
-					// if second and third are correct and first and second are wrong
-					altDiff := strToInt(digitStr[2]) - curr
-					if validCondition(altDiff) {
-						// Skips first digit
-						latestDigit = curr
-					}
-				}
-				continue
-			}
+		}
+		if !canSkipErrror {
 			return false
 		}
+		canSkipErrror = false
+		if i == 1 {
+			// Check if perhaps first digit should be ommited
+			// if second and third are correct and first and second are wrong
+			altDiff := strToInt(digitStr[2]) - curr
+			if validCondition(altDiff) {
+				// Skips first digit
+				latestDigit = curr
+			}
+		}
+		continue
 	}
 	return true
 }
