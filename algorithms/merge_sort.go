@@ -7,41 +7,39 @@ func MergeSort(input []int) []int {
 	if len(input) <= 1 {
 		return input
 	}
-	left, right := splitList(input)
+	midIndex := len(input) / 2
+	left := input[:midIndex]
+	right := input[midIndex:]
 	left = MergeSort(left)
 	right = MergeSort(right)
-	return mergeLists(left, right)
+	return Merge(left, right)
+
 }
 
-func splitList(input []int) ([]int, []int) {
-	midIndex := len(input) / 2
-	return input[0:midIndex], input[midIndex:]
-}
-
-func mergeLists(left []int, right []int) []int {
+func Merge(left []int, right []int) []int {
 	leftIndex := 0
 	rightIndex := 0
-	sorted := []int{}
-	for {
-		if left[leftIndex] <= right[rightIndex] {
-			sorted = append(sorted, left[leftIndex])
+	output := []int{}
+	for leftIndex < len(left) && rightIndex < len(right) {
+		leftValue := left[leftIndex]
+		rightValue := right[rightIndex]
+		if leftValue <= rightValue {
+			output = append(output, leftValue)
 			leftIndex++
+			continue
 		} else {
-			sorted = append(sorted, right[rightIndex])
+			output = append(output, rightValue)
 			rightIndex++
+			continue
 		}
-		if leftIndex >= len(left) && rightIndex >= len(right) {
-			return sorted
-		}
-		if leftIndex >= len(left) && rightIndex < len(right) {
-			sorted = append(sorted, right[rightIndex:]...)
-			return sorted
-		}
-		if rightIndex >= len(right) && leftIndex < len(left) {
-			sorted = append(sorted, left[leftIndex:]...)
-			return sorted
-		}
-
 	}
-
+	for leftIndex < len(left) {
+		output = append(output, left[leftIndex])
+		leftIndex++
+	}
+	for rightIndex < len(right) {
+		output = append(output, right[rightIndex])
+		rightIndex++
+	}
+	return output
 }
